@@ -126,13 +126,7 @@ navigation ul {
   border-radius: 12px;  
     font-size: 28px;
 }
-div {
-    height: 4px;
-    width: 60%;
-    margin: 50px auto;
-    background: linear-gradient(to right, transparent, #0A1F44, transparent);
-    border-radius: 50px;
-}
+
 #about,
 .about,
 .about-us {
@@ -188,6 +182,7 @@ mainp {
   padding: 35px;
   background: white;
   border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 }
 
 .mission-content {
@@ -196,3 +191,382 @@ mainp {
   margin: 0 auto;
 }
 
+/* ===== ANIMATION STYLES ===== */
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* Slide up animation */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-up {
+  animation: slideUp 0.8s ease-out forwards;
+}
+
+.benefit-card:nth-child(1) { animation-delay: 0.1s; }
+.benefit-card:nth-child(2) { animation-delay: 0.2s; }
+.benefit-card:nth-child(3) { animation-delay: 0.3s; }
+.benefit-card:nth-child(4) { animation-delay: 0.4s; }
+
+/* Hover lift animation */
+@keyframes hoverLift {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+.hover-lift:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+/* ===== MISSION SECTION STYLES ===== */
+
+.about-hero {
+  margin-top: 40px;
+}
+
+.mission-title {
+  font-size: 32px;
+  color: #0A1F44;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.mission-text {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+/* Mission buttons */
+.mission-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.mission-btn {
+  padding: 12px 24px;
+  background-color: #f0f0f0;
+  color: #0A1F44;
+  border: 2px solid #0A1F44;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-family: "DM Sans", Lato, Quicksand, sans-serif;
+}
+
+.mission-btn:hover {
+  background-color: #cea2f5;
+  color: white;
+  border-color: #cea2f5;
+  transform: translateY(-2px);
+}
+
+.mission-btn.active {
+  background-color: #0A1F44;
+  color: white;
+  border-color: #0A1F44;
+  box-shadow: 0 4px 12px rgba(10, 31, 68, 0.3);
+}
+
+/* Mission content display */
+.mission-content-display {
+  background-color: #f9f9f9;
+  border-radius: 15px;
+  padding: 30px;
+  min-height: 250px;
+}
+
+.mission-info {
+  display: none;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.mission-info.active-info {
+  display: block;
+}
+
+.mission-info h3 {
+  color: #0A1F44;
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+.mission-info p {
+  color: #555;
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+.values-list {
+  list-style: none;
+  padding: 0;
+}
+
+.values-list li {
+  margin: 12px 0;
+  padding-left: 30px;
+  position: relative;
+  color: #555;
+  line-height: 1.6;
+}
+
+.values-list li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #cea2f5;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* ===== WHY CHOOSE US SECTION ===== */
+
+.why-choose-us {
+  margin-top: 60px;
+  padding: 50px 20px;
+  background: linear-gradient(135deg, #f5f5f5 0%, #eeebeb 100%);
+  border-radius: 20px;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.benefit-card {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.benefit-card:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.benefit-icon {
+  font-size: 48px;
+  margin-bottom: 15px;
+}
+
+.benefit-card h3 {
+  color: #0A1F44;
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.benefit-card p {
+  color: #666;
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+/* ===== TEAM SECTION ===== */
+
+.team-section {
+  margin-top: 60px;
+  padding: 50px 20px;
+}
+
+.team-intro {
+  text-align: center;
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.team-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.team-card:hover {
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+}
+
+.team-image-placeholder {
+  width: 100%;
+  height: 220px;
+  background: linear-gradient(135deg, #cea2f5, #a8d5f5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.team-image-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.team-card h3 {
+  color: #0A1F44;
+  font-size: 22px;
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
+.team-role {
+  color: #cea2f5;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+}
+
+.team-bio {
+  padding: 0 20px 20px;
+  color: #666;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* ===== STORY SECTION ===== */
+
+.story-section {
+  margin-top: 60px;
+  padding: 50px 20px;
+  background: linear-gradient(135deg, #f5f5f5 0%, #eeebeb 100%);
+  border-radius: 20px;
+}
+
+.story-content {
+  max-width: 800px;
+  margin: 30px auto;
+}
+
+.story-content p {
+  font-size: 17px;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+/* ===== CTA SECTION ===== */
+
+.cta-section {
+  margin-top: 60px;
+  padding: 60px 40px;
+  background: linear-gradient(135deg, #0A1F44, #2d5a8c);
+  border-radius: 20px;
+  text-align: center;
+  color: white;
+}
+
+.cta-section h2 {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.cta-section p {
+  font-size: 18px;
+  margin-bottom: 30px;
+  opacity: 0.95;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-btn {
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: "DM Sans", Lato, Quicksand, sans-serif;
+}
+
+.primary-btn {
+  background-color: #cea2f5;
+  color: #0A1F44;
+}
+
+.primary-btn:hover {
+  background-color: #b37de8;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(206, 162, 245, 0.4);
+}
+
+.secondary-btn {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.secondary-btn:hover {
+  background-color: white;
+  color: #0A1F44;
+  transform: translateY(-3px);
+}
+
+/* ===== DIVIDER ===== */
+
+.divider {
+  height: 4px;
+  width: 60%;
+  margin: 50px auto;
+  background: linear-gradient(to right, transparent, #0A1F44, transparent);
+  border-radius: 50px;
+}

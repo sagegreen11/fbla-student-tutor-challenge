@@ -1,0 +1,300 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kindergarten Learning Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .title {
+            font-size: 42px;
+            font-weight: 700;
+            color: #1e3a5f;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            color: #6b7c93;
+            font-weight: 400;
+        }
+
+        .progress-section {
+            margin-bottom: 50px;
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 2px 8px rgba(30, 58, 95, 0.08);
+        }
+
+        .progress-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1e3a5f;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e0e6ee;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 8px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #1e3a5f 0%, #4a6fa5 100%);
+            border-radius: 10px;
+            transition: width 0.4s ease;
+            width: 0%;
+        }
+
+        .progress-text {
+            font-size: 12px;
+            color: #8a96ac;
+            text-align: right;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .section {
+            background: white;
+            padding: 28px;
+            border-radius: 16px;
+            box-shadow: 0 2px 8px rgba(30, 58, 95, 0.08);
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1e3a5f;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-icon {
+            font-size: 24px;
+            color: #d4b5f5;
+        }
+
+        .activities-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .activity-item {
+            background: #f8fafb;
+            padding: 16px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .activity-item:hover {
+            background: #f0f4f9;
+            border-color: #d4b5f5;
+        }
+
+        .activity-item.completed {
+            background: #f0f7f4;
+            border-color: #4ade80;
+        }
+
+        .activity-icon {
+            font-size: 20px;
+            color: #8a96ac;
+            min-width: 20px;
+        }
+
+        .activity-item.completed .activity-icon {
+            color: #4ade80;
+        }
+
+        .activity-text {
+            flex: 1;
+            font-size: 14px;
+            font-weight: 500;
+            color: #3d4a5c;
+        }
+
+        .activity-item.completed .activity-text {
+            color: #4ade80;
+            text-decoration: line-through;
+            opacity: 0.8;
+        }
+
+        .checkmark {
+            font-size: 20px;
+            color: #4ade80;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            min-width: 20px;
+            text-align: center;
+        }
+
+        .activity-item.completed .checkmark {
+            opacity: 1;
+        }
+
+        .icon-large {
+            font-size: 32px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">Learning Dashboard</h1>
+            <p class="subtitle">Keep learning and have fun!</p>
+        </div>
+
+        <div class="progress-section">
+            <div class="progress-label">Today's Progress</div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="progress-text"><span id="progressCount">0</span> / <span id="totalCount">0</span> completed</div>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">📋</span>
+                    Worksheets
+                </div>
+                <div class="activities-list" id="worksheetsList">
+                    <!-- Worksheets will be generated here -->
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <span class="section-icon">💻</span>
+                    Online Activities
+                </div>
+                <div class="activities-list" id="activitiesList">
+                    <!-- Online activities will be generated here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sample data - modify as needed
+        const worksheets = [
+            { id: 'ws1', name: 'Alphabet Tracing', icon: 'fas fa-pencil' },
+            { id: 'ws2', name: 'Number Practice', icon: 'fas fa-hashtag' },
+            { id: 'ws3', name: 'Shape Recognition', icon: 'fas fa-square' },
+            { id: 'ws4', name: 'Counting Exercises', icon: 'fas fa-plus' }
+        ];
+
+        const activities = [
+            { id: 'act1', name: 'Color Matching', icon: 'fas fa-palette' },
+            { id: 'act2', name: 'Sound Recognition', icon: 'fas fa-volume-up' },
+            { id: 'act3', name: 'Word Building', icon: 'fas fa-cube' },
+            { id: 'act4', name: 'Pattern Sequences', icon: 'fas fa-circle-notch' }
+        ];
+
+        let completed = new Set();
+
+        function initDashboard() {
+            renderWorksheets();
+            renderActivities();
+            updateProgress();
+        }
+
+        function renderWorksheets() {
+            const container = document.getElementById('worksheetsList');
+            container.innerHTML = worksheets.map(item => `
+                <div class="activity-item ${completed.has(item.id) ? 'completed' : ''}" onclick="toggleActivity('${item.id}')">
+                    <i class="activity-icon ${item.icon}"></i>
+                    <span class="activity-text">${item.name}</span>
+                    <span class="checkmark">✓</span>
+                </div>
+            `).join('');
+        }
+
+        function renderActivities() {
+            const container = document.getElementById('activitiesList');
+            container.innerHTML = activities.map(item => `
+                <div class="activity-item ${completed.has(item.id) ? 'completed' : ''}" onclick="toggleActivity('${item.id}')">
+                    <i class="activity-icon ${item.icon}"></i>
+                    <span class="activity-text">${item.name}</span>
+                    <span class="checkmark">✓</span>
+                </div>
+            `).join('');
+        }
+
+        function toggleActivity(id) {
+            if (completed.has(id)) {
+                completed.delete(id);
+            } else {
+                completed.add(id);
+            }
+            renderWorksheets();
+            renderActivities();
+            updateProgress();
+        }
+
+        function updateProgress() {
+            const total = worksheets.length + activities.length;
+            const count = completed.size;
+            const percentage = (count / total) * 100;
+
+            document.getElementById('progressFill').style.width = percentage + '%';
+            document.getElementById('progressCount').textContent = count;
+            document.getElementById('totalCount').textContent = total;
+        }
+
+        // Initialize on page load
+        initDashboard();
+    </script>
+</body>
+</html>

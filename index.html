@@ -20,7 +20,6 @@
       line-height: 1.6;
     }
 
-    /* Navigation */
     nav {
       background: white;
       padding: 1.2rem 5%;
@@ -111,7 +110,7 @@
       max-width: 500px;
     }
 
-    /* .search-box {
+     .search-box {
       display: flex;
       gap: 1rem;
       margin-top: 2rem;
@@ -124,7 +123,7 @@
       border-radius: 12px;
       font-size: 1rem;
       font-family: 'DM Sans', sans-serif;
-    } */
+    } 
 
     .btn-primary {
       background: #10b981;
@@ -328,9 +327,7 @@
         font-size: 2.5rem;
       }
 
-      /* .search-box {
-        flex-direction: column;
-      } */
+    
 
       .circle-1,
       .circle-2 {
@@ -357,11 +354,17 @@
         <li><a href="#volunteer">Volunteer</a></li>
         <li><a href="#resources">Resources</a></li>
         <li><a href="#contact" class="btn-login">Get Started</a></li>
+       
+
+        <h1 id="title"></h1>
+        <p id="desc"></p>
+
       </ul>
     </div>
   </nav>
 
   <!-- Hero Section -->
+
   <section class="hero" id="home">
     <div class="hero-container">
       <div class="hero-content">
@@ -372,7 +375,7 @@
           <button class="btn-primary">Find a tutor</button>
         </div> 
       </div>
-      <div class="hero-image">
+      <div class="hero-image ">
         <div class="circle-accent circle-1"></div>
         <div class="circle-accent circle-2"></div>
         <div class="hero-image-container">
@@ -410,7 +413,7 @@
         <div class="section-content">
           <h2>About Us</h2>
           <p>Student Math Mentors is a student-run volunteer tutoring program offering free tutoring for students from 1st to 8th grade. We believe in the power of education and aim to help students excel in their math skills.</p>
-          <button class="btn-secondary">About Our Tutors</button>
+          <a href="about.html" class="btn-secondary">About Our Tutors</a>
         </div>
         <div>
           <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=700&h=500&fit=crop" alt="Students collaborating" style="width: 100%; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.1);">
@@ -440,7 +443,6 @@
     </div>
   </section>
 
-  <!-- Resources Section -->
   <section class="bg-green" id="resources">
     <div class="section-container">
       <div class="section-grid">
@@ -456,7 +458,6 @@
     </div>
   </section>
 
-  <!-- Volunteer Section -->
   <section class="bg-blue" id="volunteer">
     <div class="section-container">
       <div class="section-grid">
@@ -472,7 +473,6 @@
     </div>
   </section>
 
-  <!-- Contact Section -->
   <section id="contact">
     <div class="section-container" style="text-align: center; max-width: 800px;">
       <h2>Contact Us</h2>
@@ -481,90 +481,15 @@
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
     <p>&copy; 2026 Student Math Mentors. All rights reserved.</p>
+    <p>Designed and Developed by Student Math Mentors Team: Sage Robinson, Sophie Jin, Shuohan Peng</p>
   </footer>
+  <script src="fbla.js"></script>
+</body>
+</html>
+
 </body>
 </html>
 
 
-<!--<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Student Math Mentors</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-</head>
-    <navigation >
-        <ul class="nav-links">
-            <img src="logo.png" alt="Student Math Mentors Logo" width="35" height="35" class="navbar" />
-            <li><a href="#hero">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="#services">Our Services</a></li>
-            <li><a href="#volunteer">Volunteer with Us</a></li>
-            <li><a href="resources.html">Student Resources</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-        </ul>
-    </navigation>
-    <header class= " content-block section-title" id="hero">
-        <h1 >Student Math Mentors</h1>
-          <p class="content-blocks">Empowering students through peer tutoring and mentorship</p>
-          <img src="hero-image.jpg" alt="Students tutoring each other" width="600" height="400"/>
-    <div>
-       
-    </div>
-    </header>
-   
-
-<body>
-  <section class ="content-block center stats-section">
-  <h2>Our Impact</h2>
-  <p>500+ tutoring hours • 120 students helped • 30 volunteers</p>
-</section>
-
-    <section class ="content-block" class = "section" class ="text-box" id="about">
-  <h2>About Us</h2>
-  <p class = "texts">Student Math Mentors is a student-run volunteer tutoring program offering free tutoring for students from 1st to 8th grade. We believe in the power of education and aim to help students excel in their math skills.</p>
-  <button>About Our Tutors</button>
-</section>
-  
-    <section class ="content-block" id="services">
-  <h2>Our Services</h2>
-  <ul>
-    <li>One-on-one tutoring sessions</li>
-    <li>Group study sessions</li>
-    <li>Homework help</li>
-    <li>Test preparation</li>
-  </ul>
-    <section class ="content-block text-box" id="Get Tutoring">
-    <h2>Get Tutoring</h2>
-    <p class="texts">If you are a student in need of math tutoring, we are here to help! Our tutors are available to assist with a variety of math topics and grade levels.</p>
-  <button>Get Tutoring</button>
-    </section>
-    </section>
-    <section class = "content-block">
-  <h2> Student Resources </h2>
-    <p class="texts">We provide a variety of resources to help students improve their math skills, including practice worksheets, video tutorials, and interactive games.</p>
-    <button>Explore Resources</button>
-    </section>
-  </section>
-    <section class ="content-block" id="Volunteer with Us">
-    <h2>Volunteer with Us</h2>
-    <p class="texts">Join our team of dedicated student tutors and make a difference in your community. Volunteer with us to help younger students improve their math skills and build confidence.</p>
-    <button>Become a Tutor</button>
-    </section>
-    <section class ="content-block">
-        <h2>Contact Us</h2>
-        <p class="texts">If you have any questions or would like more information about our tutoring program, please feel free to reach out to us.</p>
-    </section>
-    
-
-    <footer>
-
-        <p>&copy; 2026 Student Math Mentors. All rights reserved.</p>
-</body>
-</html>-->
