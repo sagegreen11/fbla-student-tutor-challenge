@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -15,6 +15,7 @@
 
         body {
             font-family: 'DM Sans', sans-serif;
+             background-color: #eeebeb;
             background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
             min-height: 100vh;
             padding: 40px 20px;
@@ -192,6 +193,7 @@
     <div class="container">
         <div class="header">
             <h1 class="title">Learning Dashboard</h1>
+            <h2 class= "title"><i>Kindergarten</i></h2>
             <p class="subtitle">Keep learning and have fun!</p>
         </div>
 
@@ -206,28 +208,25 @@
         <div class="content">
             <div class="section">
                 <div class="section-title">
-                    <span class="section-icon">📋</span>
+                    <span class="section-icon"></span>
                     Worksheets
                 </div>
                 <div class="activities-list" id="worksheetsList">
-                    <!-- Worksheets will be generated here -->
                 </div>
             </div>
 
             <div class="section">
                 <div class="section-title">
-                    <span class="section-icon">💻</span>
+                    <span class="section-icon"></span>
                     Online Activities
                 </div>
                 <div class="activities-list" id="activitiesList">
-                    <!-- Online activities will be generated here -->
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        // Sample data - modify as needed
         const worksheets = [
             { id: 'ws1', name: 'Alphabet Tracing', icon: 'fas fa-pencil' },
             { id: 'ws2', name: 'Number Practice', icon: 'fas fa-hashtag' },
