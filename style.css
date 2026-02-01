@@ -570,3 +570,24 @@ mainp {
   background: linear-gradient(to right, transparent, #0A1F44, transparent);
   border-radius: 50px;
 }
+
+.cta-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.mission-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.submit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
