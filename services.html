@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<head>
+    
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Get Tutoring — Student Math Mentors</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  
+</div>
+  <div style="text-align: center; padding: 30px 20px 20px;">
+    <a href="index.html" style="display: inline-block; padding: 12px 30px; background-color: #0A1F44; color: white; text-decoration: none; border-radius: 25px; font-weight: 600; transition: all 0.3s ease; font-family: 'DM Sans', Lato, Quicksand, sans-serif;">← Back to Home</a>
+</div>
+
+  <section class="services-hero fade-in">
+    <h1>Request Tutoring</h1>
+    <p>Fill out the short request form below and we'll match you with a volunteer tutor. If you prefer direct assistance, use our contact page.</p>
+  </section>
+
+  <main class="container">
+      <!-- how it works section -->
+      <section class="how-it-works fade-in">
+        <div class="how-it-works-container">
+          <h2>How it works</h2>
+            <p>1. Submit the request form with your subject and availability.</p>
+            <p>2. We will match you with an available volunteer tutor.</p>
+            <p>3. Your tutor will reach out to schedule a session and provide materials.</p>
+        </div>
+      </section>
+
+
+    <!-- form -->
+    <div class="divider"></div>
+    <section class="form-container fade-in">
+    <div class="form-header">
+        <h2>Request Tutoring Form</h2>
+        <p>Please fill out the form below to request tutoring.</p>
+    </div>
+
+    <form id="volunteerForm" action="https://formspree.io/f/mlglpqvk" method="POST">
+        <h3 style="color: #0A1F44; margin-bottom: 20px; font-size: 1.3rem;">Personal Information</h3>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="firstName">First Name <span class="required">*</span></label>
+                <input type="text" id="firstName" name="firstName" required placeholder="Enter your first name">
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name <span class="required">*</span></label>
+                <input type="text" id="lastName" name="lastName" required placeholder="Enter your last name">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="email">Email Address <span class="required">*</span></label>
+                <input type="email" id="email" name="email" required placeholder="youremail@example.com">
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number <span class="required">*</span></label>
+                <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="grade">Current Grade Level <span class="required">*</span></label>
+                <select id="grade" name="grade" required>
+                    <option value="">Select your grade</option>
+                    <option value="1">1st Grade</option>
+                    <option value="2">2nd Grade</option>
+                    <option value="3">3rd Grade</option>
+                    <option value="4">4th Grade</option>
+                    <option value="5">5th Grade</option>
+                    <option value="6">6th Grade</option>
+                    <option value="7">7th Grade</option>
+                    <option value="8">8th Grade</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="subject">Subject <span class="required">*</span></label>
+                <input type="text" id="school" name="school" required placeholder="Enter the subject you need help with">
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <label for="availability">Availability (days/times you can be tutored) <span class="required">*</span></label>
+            <textarea id="availability" name="availability" required placeholder="Example: Tuesdays and Thursdays 4-6pm, Saturdays 10am-12pm"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="additionalInfo">Additional Information </span></label>
+            <textarea id="additionalInfo" name="additionalInfo" placeholder="Anything else you would like us to know?"></textarea>
+        </div>
+
+
+
+        <div class="submit-section">
+            <button type="submit" class="submit-btn">Submit Application</button>
+            <div id="successMessage" class="success-message">
+                We've received your application. Thank you for your interest in becoming a tutor!
+            </div>
+        </div>
+    </form>
+</section>
+
+
+    <p style="margin-top:1.5rem">Questions? Visit our <a href="contact.html">Contact page</a>.</p>
+  </main>
+
+  <script>
+    // show a confirmation message if redirected back after successful submit
+    (function(){
+      const params = new URLSearchParams(window.location.search);
+      if(params.get('sent')==='1'){
+        const el = document.getElementById('requestSuccess'); if(el) el.style.display='block';
+      }
+    })();
+  </script>
+</body>
+</html>
