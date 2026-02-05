@@ -7,6 +7,8 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+
+        /* goal, add an animation to congratulate student after completing all activities */
         * {
             margin: 0;
             padding: 0;
@@ -187,13 +189,29 @@
         .icon-large {
             font-size: 32px;
         }
+        nav {
+      background: white;
+      padding: 1.2rem 5%;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content:space-between;
+      align-items: center;
+    }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
             <h1 class="title">Learning Dashboard</h1>
-            <h2 class= "title"><i>Kindergarden</i></h2>
+            <h2 class= "title"><i>First Grader</i></h2>
             <p class="subtitle">Keep learning and have fun!</p>
         </div>
 
@@ -228,16 +246,16 @@
 
     <script>
         const worksheets = [
-            { id: 'ws1', name: 'Alphabet Tracing', icon: 'fas fa-pencil' },
-            { id: 'ws2', name: 'Number Practice', icon: 'fas fa-hashtag' },
+            { id: 'ws1', name: 'Number Tracings', icon: 'fas fa-pencil' },
+            { id: 'ws2', name: 'Addition Practice', icon: 'fas fa-hashtag' },
             { id: 'ws3', name: 'Shape Recognition', icon: 'fas fa-square' },
             { id: 'ws4', name: 'Counting Exercises', icon: 'fas fa-plus' }
         ];
 
         const activities = [
-            { id: 'act1', name: 'Color Matching', icon: 'fas fa-palette' },
-            { id: 'act2', name: 'Sound Recognition', icon: 'fas fa-volume-up' },
-            { id: 'act3', name: 'Word Building', icon: 'fas fa-cube' },
+            { id: 'act1', name: 'Number Songs', icon: 'fas fa-palette' },
+            { id: 'act2', name: 'Math Games', icon: 'fas fa-volume-up' },
+            { id: 'act3', name: 'Shape Matching Games', icon: 'fas fa-cube' },
             { id: 'act4', name: 'Pattern Sequences', icon: 'fas fa-circle-notch' }
         ];
 
