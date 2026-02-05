@@ -7,149 +7,919 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: #1a1a1a;
+      line-height: 1.6;
+    }
+
+
+    nav {
+      background: white;
+      padding: 1.2rem 5%;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content:space-between;
+      align-items: center;
+    }
+
+
+    .logo {
+      display: flex;
+      align-items:start;
+      gap: 10px;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #6366f1;
+    }
+
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+      align-items: center;
+    }
+
+
+    .nav-links a {
+      text-decoration: none;
+      color: #000000;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+
+    .nav-links a:hover {
+      color: #6366f1;
+    }
+
+
+    .btn-login {
+      background: #6366f1;
+      color: white !important;
+      padding: 0.6rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+
+    .btn-login:hover {
+      background: #4f46e5;
+      color: white !important;
+    }
+
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #eff2fb 0%, #d6def7 100%);
+      padding: 6rem 5% 8rem;
+      position:relative;
+      overflow: hidden;
+    }
+
+
+    .hero-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+
+    .hero-content h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      line-height: 1.1;
+      color: #1a1a1a;
+      margin-bottom: 1.5rem;
+    }
+
+
+    .hero-content p {
+      font-size: 1.25rem;
+      color: #4a5568;
+      margin-bottom: 2rem;
+      max-width: 500px;
+    }
+
+
+    .search-box {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+
+    .search-box input {
+      flex: 1;
+      padding: 1rem 1.5rem;
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+
+    .btn-primary {
+      background: #10b981;
+      color: white;
+      padding: 1rem 2.5rem;
+      border: none;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+
+    .btn-primary:hover {
+      background: #059669;
+    }
+
+
+    .hero-image {
+      position: relative;
+    }
+
+
+    .hero-image-container {
+      background: white;
+      padding: 1rem;
+      border-radius: 20px;
+      rotate: -2deg;
+    }
+
+
+    .hero-image img {
+      width: 100%;
+      border-radius: 12px;
+      display: block;
+    }
+
+
+    .circle-accent {
+      position: absolute;
+      border-radius: 50%;
+      z-index: -1;
+    }
+
+
+    .circle-1 {
+      width: 400px;
+      height: 400px;
+      background: #fbbf24;
+      top: -100px;
+      right: -50px;
+      opacity: 0.3;
+    }
+
+
+    .circle-2 {
+      width: 300px;
+      height: 300px;
+      background: #ec4899;
+      bottom: -80px;
+      right: 100px;
+      opacity: 0.2;
+    }
+
+
+    /* Stats Section */
+    .stats {
+      background: white;
+      padding: 3rem 5%;
+      text-align: center;
+    }
+
+
+    .stats-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+
+    .stats h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #1a1a1a;
+    }
+
+
+    .stats-numbers {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+
+    .stat-item {
+      text-align: center;
+    }
+
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #6366f1;
+    }
+
+
+    .stat-label {
+      color: #718096;
+      font-size: 1rem;
+    }
+
+
+    /* Content Sections */
+    section {
+      padding: 5rem 5%;
+    }
+
+
+    .section-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+
+    .section-content h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      color: #1a1a1a;
+    }
+
+
+    .section-content p {
+      font-size: 1.125rem;
+      color: #4a5568;
+      margin-bottom: 2rem;
+      line-height: 1.8;
+    }
+
+
+    .btn-secondary {
+      background: #6366f1;
+      color: white;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+
+    .btn-secondary:hover {
+      background: #4f46e5;
+    }
+
+
+    .services-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+
+    .services-list li {
+      background: #f8fafc;
+      padding: 1.5rem;
+      border-radius: 12px;
+      border-left: 4px solid #6366f1;
+      font-weight: 500;
+    }
+
+
+    .bg-purple {
+      background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%);
+    }
+
+
+    .bg-green {
+      background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+    }
+
+
+    .bg-blue {
+      background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+    }
+
+
+    /* Footer */
+    footer {
+      background: #1a1a1a;
+      color: white;
+      padding: 3rem 5%;
+      text-align: center;
+    }
+
+
+    footer p {
+      color: #94a3b8;
+    }
+
+
+    /* Responsive */
+    @media (max-width: 968px) {
+      .nav-links {
+        gap: 1rem;
+        font-size: 0.9rem;
+      }
+
+
+      .hero-container,
+      .section-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+
+
+
+
+
+
+      .circle-1,
+      .circle-2 {
+        display: none;
+      }
+
+
+      .services-list {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
-  <!-- nav -->
-  <nav>
-    <div class="nav-container">
-      <div class="logo">
-        <img src="logo.png" alt="Student Math Mentors Logo" width="80" height="70" class="navbar" /> </li>
-      </div>
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#volunteer">Volunteer</a></li>
-        <li><a href="#resources">Resources</a></li>
-        <li><a href="#contact" class="btn-login">Get Started</a></li>
-      </ul>
+<!-- Student Signup Modal -->
+<div id="signupModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Student Signup</h2>
+      <p>Join our tutoring program and get matched with a mentor</p>
     </div>
-  </nav>
-
-  <!--hero -->
-  <section class="hero" id="home">
-    <div class="hero-container">
-      <div class="hero-content">
-        <h1>Student Math Mentors</h1>
-        <p>Empowering students through peer tutoring and mentorship</p>
-         <div class="search-box">
-          
-          <button class="btn-primary">Find a tutor</button>
-        </div> 
-      </div>
-      <div class="hero-image">
-        <div class="circle-accent circle-1"></div>
-        <div class="circle-accent circle-2"></div>
-        <div class="hero-image-container">
-          <img src="https://epe.brightspotcdn.com/ce/1b/4dbafb4c44e0921e72cd7c242b01/teacher-tutor-student-022023-187244393.jpg" alt="Student studying online">
+    <div class="modal-body">
+      <form id="signupForm" action="https://formspree.io/f/mvzqnrzj" method="POST">
+        <div class="form-group">
+          <label for="studentName">Student Name <span class="required">*</span></label>
+          <input type="text" id="studentName" name="student_name" required placeholder="Enter student's full name">
         </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="grade">Grade Level <span class="required">*</span></label>
+            <select id="grade" name="grade" required>
+              <option value="">Select grade</option>
+              <option value="1">1st Grade</option>
+              <option value="2">2nd Grade</option>
+              <option value="3">3rd Grade</option>
+              <option value="4">4th Grade</option>
+              <option value="5">5th Grade</option>
+              <option value="6">6th Grade</option>
+              <option value="7">7th Grade</option>
+              <option value="8">8th Grade</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="parentName">Parent/Guardian Name <span class="required">*</span></label>
+            <input type="text" id="parentName" name="parent_name" required placeholder="Enter parent's name">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">Email Address <span class="required">*</span></label>
+            <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number <span class="required">*</span></label>
+            <input type="tel" id="phone" name="phone" required placeholder="(123) 456-7890">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="availability">Preferred Tutoring Times <span class="required">*</span></label>
+          <textarea id="availability" name="availability" required placeholder="Example: Tuesdays and Thursdays 4-6pm, Saturdays 10am-12pm"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="subjects">Math Topics Needing Help <span class="required">*</span></label>
+          <textarea id="subjects" name="subjects" required placeholder="Example: Fractions, multiplication tables, word problems, etc."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="additionalInfo">Additional Information (Optional)</label>
+          <textarea id="additionalInfo" name="additional_info" placeholder="Any other details we should know about your student"></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit" id="submitBtn">Sign Up for Tutoring</button>
+
+        <div id="successMessage" class="success-message">
+          ✓ Thank you for signing up! We'll contact you within 24-48 hours to match your student with a tutor.
+        </div>
+
+        <div id="errorMessage" class="error-message">
+          ✗ There was a problem submitting your form. Please try again or email us at studentmathmentors@gmail.com
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Modal Styles */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.3s ease;
+    overflow-y: auto;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .modal-content {
+    background-color: white;
+    margin: 3% auto;
+    padding: 0;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 700px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    animation: slideDown 0.3s ease;
+  }
+
+  @keyframes slideDown {
+    from {
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .modal-header {
+    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+    color: white;
+    padding: 30px;
+    border-radius: 20px 20px 0 0;
+    text-align: center;
+  }
+
+  .modal-header h2 {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+  }
+
+  .modal-header p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+  }
+
+  .modal-body {
+    padding: 30px;
+  }
+
+  .close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+  }
+
+  .close:hover,
+  .close:focus {
+    opacity: 1;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #1a1a1a;
+    font-size: 14px;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: 'DM Sans', sans-serif;
+    transition: border-color 0.3s;
+    background-color: #fafafa;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: #6366f1;
+    background-color: white;
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  @media (max-width: 768px) {
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .required {
+    color: #e74c3c;
+    margin-left: 3px;
+  }
+
+  .btn-submit {
+    width: 100%;
+    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+  }
+
+  .btn-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  .success-message {
+    display: none;
+    background: #d1fae5;
+    color: #065f46;
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 20px;
+    text-align: center;
+    font-weight: 600;
+    border: 2px solid #10b981;
+    animation: slideIn 0.5s ease;
+  }
+
+  .error-message {
+    display: none;
+    background: #fee2e2;
+    color: #991b1b;
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 20px;
+    text-align: center;
+    font-weight: 600;
+    border: 2px solid #ef4444;
+    animation: slideIn 0.5s ease;
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+<!-- Navigation -->
+<nav>
+  <div class="nav-container">
+    <div class="logo">
+      <img src="logo.png" alt="Student Math Mentors Logo" width="80" height="70" class="navbar" />
+    </div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#volunteer">Volunteer</a></li>
+      <li><a href="#resources">Resources</a></li>
+      <li><a href="#" class="btn-login" id="signupBtn">Student Signup</a></li>
+
+
+
+
+      <h1 id="title"></h1>
+      <p id="desc"></p>
+
+
+    </ul>
+  </div>
+</nav>
+
+
+<!-- Hero Section -->
+
+
+<section class="hero" id="home">
+  <div class="hero-container">
+    <div class="hero-content">
+      <h1>Student Math Mentors</h1>
+      <p>Empowering students through peer tutoring and mentorship</p>
+      <div class="search-box">
+        <!-- <input type="text" placeholder="Search a subject"> -->
+        <button class="btn-primary">Find a tutor</button>
       </div>
     </div>
-  </section>
-
-  <!-- stats -->
-  <section class="stats">
-    <div class="stats-container">
-      <h2>Our Impact</h2>
-      <div class="stats-numbers">
-        <div class="stat-item">
-          <div class="stat-number">500+</div>
-          <div class="stat-label">Tutoring Hours</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">120</div>
-          <div class="stat-label">Students Helped</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">30</div>
-          <div class="stat-label">Volunteers</div>
-        </div>
+    <div class="hero-image ">
+      <div class="circle-accent circle-1"></div>
+      <div class="circle-accent circle-2"></div>
+      <div class="hero-image-container">
+        <img src="https://epe.brightspotcdn.com/ce/1b/4dbafb4c44e0921e72cd7c242b01/teacher-tutor-student-022023-187244393.jpg" alt="Student studying online">
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- about -->
-  <section class="bg-purple" id="about">
-    <div class="section-container">
-      <div class="section-grid">
-        <div class="section-content">
-          <h2>About Us</h2>
-          <p>Student Math Mentors is a student-run volunteer tutoring program offering free tutoring for students from 1st to 8th grade. We believe in the power of education and aim to help students excel in their math skills.</p>
-          <a href="tutors.html" class="btn-secondary">About Our Tutors</a>
-        </div>
-        <div>
-          <img src="https://images.seattletimes.com/wp-content/uploads/2023/08/08112023_2-math_134131.jpg?d=2040x1361" alt="Students collaborating" style="width: 100%; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.1);">
-        </div>
+
+<!-- Stats Section -->
+<section class="stats">
+  <div class="stats-container">
+    <h2>Our Impact</h2>
+    <div class="stats-numbers">
+      <div class="stat-item">
+        <div class="stat-number">500+</div>
+        <div class="stat-label">Tutoring Hours</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">120</div>
+        <div class="stat-label">Students Helped</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">30</div>
+        <div class="stat-label">Volunteers</div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- services-->
-  <section id="services">
-    <div class="section-container">
-      <div class="section-grid">
-        <div>
-          <img src="https://www.ziprecruiter.com/svc/fotomat/public-ziprecruiter/cms/1155064216TeenageTutor.jpg=ws1280x960" alt="Tutoring session" style="width: 100%; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.1);">
-        </div>
-        <div class="section-content">
-          <h2>Our Services</h2>
-          <ul class="services-list">
-            <li>One-on-one tutoring sessions</li>
-            <li>Group study sessions</li>
-            <li>Homework help</li>
-            <li>Test preparation</li>
-          </ul>
-          <button class="btn-secondary" style="margin-top: 2rem;">Get Tutoring</button>
-        </div>
+
+<!-- About Section -->
+<section class="bg-purple" id="about">
+  <div class="section-container">
+    <div class="section-grid">
+      <div class="section-content">
+        <h2>About Us</h2>
+        <p>Student Math Mentors is a student-run volunteer tutoring program offering free tutoring for students from 1st to 8th grade. We believe in the power of education and aim to help students excel in their math skills.</p>
+        <a href="about.html" class="btn-secondary">About Our Tutors</a>
+      </div>
+      <div>
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=700&h=500&fit=crop" alt="Students collaborating" style="width: 100%; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.1);">
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!--resources -->
-  <section class="bg-green" id="resources">
-    <div class="section-container">
-      <div class="section-grid">
-        <div class="section-content">
-          <h2>Student Resources</h2>
-          <p>We provide a variety of resources to help students improve their math skills, including practice worksheets, video tutorials, and interactive games.</p>
-          <button class="btn-secondary">Explore Resources</button>
-        </div>
-        <div>
-          <img src="https://statik.unesa.ac.id/profileunesa_konten_statik%2Fuploads%2Fs3tp.pasca.unesa.ac.id/thumbnail/f69bfbb2-70cd-4c06-98fa-24bbfb579128.jpg" alt="Learning resources" style="width: 100%; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.1);">
-        </div>
+
+<!-- Services Section -->
+<section id="services">
+  <div class="section-container">
+    <div class="section-grid">
+      <div>
+        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=700&h=500&fit=crop" alt="Tutoring session" style="width: 100%; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.1);">
+      </div>
+      <div class="section-content">
+        <h2>Our Services</h2>
+        <ul class="services-list">
+          <li>One-on-one tutoring sessions</li>
+          <li>Group study sessions</li>
+          <li>Homework help</li>
+          <li>Test preparation</li>
+        </ul>
+        <a href="contact.html" class="btn-secondary" style="margin-top: 2rem; text-decoration: none;">Get Tutoring</a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!--volunteer -->
-  <section class="bg-blue" id="volunteer">
-    <div class="section-container">
-      <div class="section-grid">
-        <div>
-          <img src="https://pace.princeton.edu/sites/g/files/toruqf6286/files/styles/16x9_1440w_810h/public/pages/student_volunteers_council_new_alternate_small.jpg?itok=FcRoC9MH" alt="Volunteer tutors" style="width: 100%; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.1);">
-        </div>
-        <div class="section-content">
-          <h2>Volunteer with Us</h2>
-          <p>Join our team of dedicated student tutors and make a difference in your community. Volunteer with us to help younger students improve their math skills and build confidence.</p>
-          <button class="btn-secondary">Become a Tutor</button>
-        </div>
+
+<section class="bg-green" id="resources">
+  <div class="section-container">
+    <div class="section-grid">
+      <div class="section-content">
+        <h2>Student Resources</h2>
+        <p>We provide a variety of resources to help students improve their math skills, including practice worksheets, video tutorials, and interactive games.</p>
+        <a href="resources.html" class="btn-secondary" style="text-decoration: none;">Explore Resources</a>
+      </div>
+      <div>
+        <img src="https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?w=700&h=500&fit=crop" alt="Learning resources" style="width: 100%; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.1);">
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- contact -->
-  <section id="contact">
-    <div class="section-container" style="text-align: center; max-width: 800px;">
-      <h2>Contact Us</h2>
-      <p style="font-size: 1.125rem; color: #4a5568; margin: 1.5rem 0 2rem;">If you have any questions or would like more information about our tutoring program, please feel free to reach out to us.</p>
-      <button class="btn-primary">Get in Touch</button>
+
+<section class="bg-blue" id="volunteer">
+  <div class="section-container">
+    <div class="section-grid">
+      <div>
+        <img src="https://images.unsplash.com/photo-1491841573634-28140fc7ced7?w=700&h=500&fit=crop" alt="Volunteer tutors" style="width: 100%; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.1);">
+      </div>
+      <div class="section-content">
+        <h2>Volunteer with Us</h2>
+        <p>Join our team of dedicated student tutors and make a difference in your community. Volunteer with us to help younger students improve their math skills and build confidence.</p>
+        <a href="volunteer.html" class="btn-secondary" style="text-decoration: none;">Become a Tutor</a>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- footer -->
-  <footer>
-    <p>&copy; 2026 Student Math Mentors. All rights reserved.</p>
-  </footer>
+
+<section id="contact">
+  <div class="section-container" style="text-align: center; max-width: 800px;">
+    <h2>Contact Us</h2>
+    <p style="font-size: 1.125rem; color: #4a5568; margin: 1.5rem 0 2rem;">If you have any questions or would like more information about our tutoring program, please feel free to reach out to us.</p>
+    <a href="contact.html" class="btn-primary" style="text-decoration: none;">Get in Touch</a>
+  </div>
+</section>
+
+
+<footer>
+  <p>&copy; 2026 Student Math Mentors. All rights reserved.</p>
+  <p>Designed and Developed by Student Math Mentors Team: Sage Robinson, Sophie Jin, Shuohan Peng</p>
+</footer>
+<script src="fbla.js"></script>
+<script>
+  // Modal functionality
+  const modal = document.getElementById('signupModal');
+  const btn = document.getElementById('signupBtn');
+  const span = document.getElementsByClassName('close')[0];
+  const form = document.getElementById('signupForm');
+  const successMessage = document.getElementById('successMessage');
+  const errorMessage = document.getElementById('errorMessage');
+  const submitBtn = document.getElementById('submitBtn');
+
+  // Open modal
+  btn.onclick = function(e) {
+    e.preventDefault();
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+  }
+
+  // Close modal
+  span.onclick = function() {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+    successMessage.style.display = 'none';
+    errorMessage.style.display = 'none';
+  }
+
+  // Close when clicking outside
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+      successMessage.style.display = 'none';
+      errorMessage.style.display = 'none';
+    }
+  }
+
+  // Handle form submission
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // Disable submit button
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Submitting...';
+
+    // Hide any previous messages
+    successMessage.style.display = 'none';
+    errorMessage.style.display = 'none';
+
+    const formData = new FormData(form);
+
+    // Send to Formspree
+    fetch(form.action, {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    })
+    .then(response => {
+      if (response.ok) {
+        // Success!
+        successMessage.style.display = 'block';
+        successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        form.reset();
+
+        // Re-enable button
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Sign Up for Tutoring';
+
+        // Hide success message and close modal after 5 seconds
+        setTimeout(() => {
+          successMessage.style.display = 'none';
+          modal.style.display = 'none';
+          document.body.style.overflow = 'auto';
+        }, 5000);
+      } else {
+        throw new Error('Form submission failed');
+      }
+    })
+    .catch(error => {
+      // Error
+      errorMessage.style.display = 'block';
+      errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+      // Re-enable button
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Sign Up for Tutoring';
+
+      // Hide error message after 8 seconds
+      setTimeout(() => {
+        errorMessage.style.display = 'none';
+      }, 8000);
+    });
+  });
+</script>
 </body>
 </html>
