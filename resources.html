@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
   <style>
+    /* Fade in animation */
     @keyframes fadeIn {
       from {
         opacity: 0;
@@ -23,6 +25,7 @@
       animation: fadeIn 0.8s ease-out forwards;
     }
 
+    /* Slide up animation */
     @keyframes slideUp {
       from {
         opacity: 0;
@@ -48,6 +51,7 @@
     .grade-card:nth-child(8) { animation-delay: 0.8s; }
     .grade-card:nth-child(9) { animation-delay: 0.9s; }
 
+    /* Navigation styles */
     navigation {
       display: flex;
       justify-content: center;
@@ -86,32 +90,39 @@
     body {
       font-family: "DM Sans", Lato, Quicksand, sans-serif;
       margin: 0;
-      background-color: #eeebeb;
+      background-color: #ffffff;
       color: #0A1F44;
       padding: 20px;
     }
 
-    .welcome-section {
-      text-align: center;
-      margin-top: 40px;
-      margin-bottom: 50px;
-    }
+/* Welcome Section */
+.resources-hero {
+  text-align: center;
+  padding: 60px 20px 40px;
+  background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%);
+  border-radius: 20px;
+  margin-bottom: 50px;
+}
 
-    .welcome-section h1 {
-      font-size: 3rem;
-      color: #0A1F44;
-      margin-bottom: 15px;
-      font-weight: 700;
-    }
 
-    .welcome-section p {
-      font-size: 1.2rem;
-      color: #666;
-      max-width: 700px;
-      margin: 0 auto 30px;
-      line-height: 1.6;
-    }
+.resources-hero h1 {
+  font-size: 3rem;
+  color: #0A1F44;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
 
+
+.resources-hero p {
+  font-size: 1.2rem;
+  color: #666;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+
+    /* Grade Selection Section */
     .grade-selection-container {
       max-width: 1200px;
       margin: 0 auto;
@@ -169,6 +180,7 @@
       color: #666;
     }
 
+    /* Grade badges */
     .grade-badge {
       display: inline-block;
       background: #cea2f5;
@@ -180,6 +192,7 @@
       margin-top: 10px;
     }
 
+    /* Divider */
     .divider {
       height: 4px;
       width: 60%;
@@ -188,8 +201,9 @@
       border-radius: 50px;
     }
 
+    /* Info Section */
     .resources-info {
-      background: white;
+      background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%);
       border-radius: 15px;
       padding: 40px;
       max-width: 900px;
@@ -212,7 +226,7 @@
 
     /* Responsive */
     @media (max-width: 768px) {
-      .welcome-section h1 {
+      .resources-hero h1 {
         font-size: 2rem;
       }
 
@@ -241,9 +255,19 @@
   </style>
 </head>
 <body>
+  <navigation>
+    <ul class="nav-links">
+      <img src="logo.png" alt="Student Math Mentors Logo" width="50" height="50" class="navbar" />
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="#services">Our Services</a></li>
+      <li><a href="#volunteer">Volunteer with Us</a></li>
+      <li><a href="resources.html">Student Resources</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </navigation>
 
-
-  <section class="welcome-section fade-in">
+  <section class="resources-hero fade-in">
     <h1>Welcome to Student Resources</h1>
     <p>Select your grade level below to access practice materials, tutorials, and learning resources designed just for you. Our resources are created to help you succeed in mathematics!</p>
   </section>
