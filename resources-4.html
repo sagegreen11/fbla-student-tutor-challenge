@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
 
-        /* goal, add an animation to congratulate student after completing all activities */
+        /* goal, add an animation to congratulate student after completing all activities & add some videos within-- also the diagnostic quiz needs to be started  */
         * {
             margin: 0;
             padding: 0;
@@ -130,14 +130,20 @@
 
         .activity-item {
             background: #f8fafb;
-            padding: 16px;
             border-radius: 12px;
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            cursor: pointer;
             transition: all 0.3s ease;
             border: 2px solid transparent;
+            overflow: hidden;
+        }
+
+        .activity-item a {
+            display: flex;
+            padding: 16px;
+            align-items: center;
+            gap: 14px;
+            color: inherit;
+            text-decoration: none;
+            cursor: pointer;
         }
 
         .activity-item:hover {
@@ -158,6 +164,12 @@
 
         .activity-item.completed .activity-icon {
             color: #4ade80;
+        }
+
+        .activity-item.completed a .activity-text {
+            color: #4ade80;
+            text-decoration: line-through;
+            opacity: 0.8;
         }
 
         .activity-text {
@@ -189,7 +201,7 @@
         .icon-large {
             font-size: 32px;
         }
-        nav {
+    nav {
       background: white;
       padding: 1.2rem 5%;
       box-shadow: 0 2px 10px rgba(0,0,0,0.05);
@@ -207,11 +219,12 @@
     }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="header">
             <h1 class="title">Learning Dashboard</h1>
-            <h2 class= "title"><i>First Grader</i></h2>
+            <h2 class= "title"><i>Fourth Grade</i></h2>
             <p class="subtitle">Keep learning and have fun!</p>
         </div>
 
@@ -246,22 +259,38 @@
 
     <script>
         const worksheets = [
-            { id: 'ws1', name: 'Number Tracings', icon: 'fas fa-pencil', link: },
-            { id: 'ws2', name: 'Addition Practice', icon: 'fas fa-hashtag', link: },
-            { id: 'ws3', name: 'Shape Recognition', icon: 'fas fa-square', link:  },
-            { id: 'ws4', name: 'Counting Exercises', icon: 'fas fa-plus', link: ' }
+            { id: 'ws1', name: 'Rounding Numbers', icon: 'fas fa-pencil', link: 'https://www.khanacademy.org/math/cc-fractions' },
+            { id: 'ws2', name: 'Relate Fractions + Decimals ', icon: 'fas fa-hashtag', link: 'https://www.khanacademy.org/math/cc-third-grade-math' },
+            { id: 'ws3', name: 'Multply by two digit numbers', icon: 'fas fa-square', link: 'https://www.mathsisfun.com/geometry/shapes-index.html' },
+            { id: 'ws4', name: 'Divide by two digit numbers ', icon: 'fas fa-plus', link: 'https://www.khanacademy.org/math/arithmetic/arith-review-add-subtract' }
         ];
 
         const activities = [
-            { id: 'act1', name: 'Number Songs', icon: 'fas fa-palette', link:},
-            { id: 'act2', name: 'Math Games', icon: 'fas fa-volume-up', link:},
-            { id: 'act3', name: 'Shape Matching Games', icon: 'fas fa-cube', link: },
-            { id: 'act4', name: 'Pattern Sequences', icon: 'fas fa-circle-notch', link: }
+            { id: 'act1', name: 'Mode, Median, and Range ', icon: 'fas fa-palette', link: 'https://www.ixl.com/math/grade-3/addition' },
+            { id: 'act2', name: 'Meteric units of measurement', icon: 'fas fa-volume-up', link: 'https://www.ixl.com/math/grade-3/place-value' },
+            { id: 'act3', name: 'Patterns and Sequences', icon: 'fas fa-cube', link: 'https://www.education.com/games/shape/' },
+            { id: 'act4', name: 'Lines and Angles', icon: 'fas fa-circle-notch', link: 'https://www.ixl.com/math/grade-3/subtraction' }
         ];
 
         let completed = new Set();
 
+        function saveCompleted() {
+            localStorage.setItem('completedActivities', JSON.stringify(Array.from(completed)));
+        }
+
+        function loadCompleted() {
+            const data = localStorage.getItem('completedActivities');
+            if (data) {
+                try {
+                    JSON.parse(data).forEach(id => completed.add(id));
+                } catch (e) {
+                    console.error('Failed to parse completed activities from localStorage', e);
+                }
+            }
+        }
+
         function initDashboard() {
+            loadCompleted();
             renderWorksheets();
             renderActivities();
             updateProgress();
@@ -270,10 +299,12 @@
         function renderWorksheets() {
             const container = document.getElementById('worksheetsList');
             container.innerHTML = worksheets.map(item => `
-                <div class="activity-item ${completed.has(item.id) ? 'completed' : ''}" onclick="toggleActivity('${item.id}')">
-                    <i class="activity-icon ${item.icon}"></i>
-                    <span class="activity-text">${item.name}</span>
-                    <span class="checkmark">✓</span>
+                <div class="activity-item ${completed.has(item.id) ? 'completed' : ''}">
+                    <a href="${item.link}" target="_blank" rel="noopener noreferrer" onclick="handleClick(event,'${item.id}')">
+                        <i class="activity-icon ${item.icon}"></i>
+                        <span class="activity-text">${item.name}</span>
+                        <span class="checkmark">✓</span>
+                    </a>
                 </div>
             `).join('');
         }
@@ -281,12 +312,18 @@
         function renderActivities() {
             const container = document.getElementById('activitiesList');
             container.innerHTML = activities.map(item => `
-                <div class="activity-item ${completed.has(item.id) ? 'completed' : ''}" onclick="toggleActivity('${item.id}')">
-                    <i class="activity-icon ${item.icon}"></i>
-                    <span class="activity-text">${item.name}</span>
-                    <span class="checkmark">✓</span>
+                <div class="activity-item ${completed.has(item.id) ? 'completed' : ''}">
+                    <a href="${item.link}" target="_blank" rel="noopener noreferrer" onclick="handleClick(event,'${item.id}')">
+                        <i class="activity-icon ${item.icon}"></i>
+                        <span class="activity-text">${item.name}</span>
+                        <span class="checkmark">✓</span>
+                    </a>
                 </div>
             `).join('');
+        }
+
+        function handleClick(e, id) {
+            toggleActivity(id);
         }
 
         function toggleActivity(id) {
@@ -295,6 +332,7 @@
             } else {
                 completed.add(id);
             }
+            saveCompleted();
             renderWorksheets();
             renderActivities();
             updateProgress();
