@@ -2,148 +2,165 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <title>Student Math Mentors</title>
+    <title>About Us - Student Math Mentors</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
 </head>
 <body>
+<!-- Back to Home Button -->
 <div style="text-align: center; padding: 30px 20px 20px;">
     <a href="index.html" style="display: inline-block; padding: 12px 30px; background-color: #0A1F44; color: white; text-decoration: none; border-radius: 25px; font-weight: 600; transition: all 0.3s ease; font-family: 'DM Sans', Lato, Quicksand, sans-serif;">← Back to Home</a>
 </div>
 
+<!-- Hero Header -->
 <section style="text-align: center; padding: 80px 20px 60px; background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%); color: #0A1F44; margin-bottom: 60px;">
     <h1 style="font-size: 3.5rem; margin-bottom: 15px; font-weight: 700;">About Us</h1>
     <p style="font-size: 1.3rem; max-width: 700px; margin: 0 auto; line-height: 1.6; opacity: 0.85;">Learn more about our mission, values, and the dedicated team behind Student Math Mentors</p>
 </section>
 
-<section class="about-hero fade-in" id="about">
-    <section class="mission-card">
-        <h2 class="mission-title">Our Mission</h2>
-        <p class="mission-text">
-            At Student Math Mentors, our mission is to empower students through peer tutoring
-            and mentorship. We strive to create a supportive learning environment where students
-            can build confidence in their math skills and achieve academic success.
-        </p>
+<!-- Mission Section -->
+<div style="max-width: 1200px; margin: 0 auto; padding: 0 20px 80px;">
 
-        <div class="mission-buttons">
-            <button class="mission-btn active" onclick="toggleMissionInfo('approach')">Our Approach</button>
-            <button class="mission-btn" onclick="toggleMissionInfo('impact')">Our Impact</button>
-            <button class="mission-btn" onclick="toggleMissionInfo('values')">Our Values</button>
-        </div>
+    <!-- Mission Card -->
+    <div style="background: white; padding: 50px; border-radius: 20px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); margin-bottom: 40px;">
+        <section class="about-hero fade-in" id="about">
+            <section class="mission-card" style="box-shadow: none; padding: 0;">
+                <h2 class="mission-title">Our Mission</h2>
+                <p class="mission-text">
+                    At Student Math Mentors, our mission is to empower students through peer tutoring
+                    and mentorship. We strive to create a supportive learning environment where students
+                    can build confidence in their math skills and achieve academic success.
+                </p>
 
-        <div class="mission-content-display">
-            <div id="approach" class="mission-info active-info">
-                <h3>Our Approach</h3>
-                <p>We believe in personalized, one-on-one tutoring that adapts to each student's unique learning style. Our peer mentors provide relatable support and real-world insights that create meaningful learning experiences.</p>
+                <!-- Interactive Buttons -->
+                <div class="mission-buttons">
+                    <button class="mission-btn active" onclick="toggleMissionInfo('approach')">Our Approach</button>
+                    <button class="mission-btn" onclick="toggleMissionInfo('impact')">Our Impact</button>
+                    <button class="mission-btn" onclick="toggleMissionInfo('values')">Our Values</button>
+                </div>
+
+                <!-- Dynamic Content Display -->
+                <div class="mission-content-display">
+                    <div id="approach" class="mission-info active-info">
+                        <h3>Our Approach</h3>
+                        <p>We believe in personalized, one-on-one tutoring that adapts to each student's unique learning style. Our peer mentors provide relatable support and real-world insights that create meaningful learning experiences.</p>
+                    </div>
+                    <div id="impact" class="mission-info">
+                        <h3>Our Impact</h3>
+                        <p>Over 500+ students have improved their math grades, with an average increase of 2+ letter grades. We've built a community where 95% of our students report increased confidence in mathematics.</p>
+                    </div>
+                    <div id="values" class="mission-info">
+                        <h3>Our Core Values</h3>
+                        <ul class="values-list">
+                            <li><strong>Accessibility:</strong> Making quality tutoring available to everyone</li>
+                            <li><strong>Support:</strong> Creating a judgment-free learning environment</li>
+                            <li><strong>Growth:</strong> Fostering academic and personal development</li>
+                            <li><strong>Community:</strong> Building connections between students and mentors</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </div>
+
+    <!-- Why Choose Us Card -->
+    <div style="background: white; padding: 50px; border-radius: 20px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); margin-bottom: 40px;">
+        <section class="why-choose-us fade-in">
+            <h2 class="section-title" style="text-align: center;">Why Choose Student Math Mentors?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card slide-up">
+                    <h3>Expert Mentors</h3>
+                    <p>Carefully selected peer mentors who excel in mathematics and have a passion for teaching</p>
+                </div>
+                <div class="benefit-card slide-up">
+                    <h3>Flexible Scheduling</h3>
+                    <p>Sessions scheduled at times convenient for both students and mentors</p>
+                </div>
+                <div class="benefit-card slide-up">
+                    <h3>Personalized Learning</h3>
+                    <p>Customized lesson plans tailored to individual student needs and goals</p>
+                </div>
+                <div class="benefit-card slide-up">
+                    <h3>Proven Results</h3>
+                    <p>Documented success in helping students improve grades and test scores</p>
+                </div>
             </div>
-            <div id="impact" class="mission-info">
-                <h3>Our Impact</h3>
-                <p>Over 500+ students have improved their math grades, with an average increase of 2+ letter grades. We've built a community where 95% of our students report increased confidence in mathematics.</p>
+        </section>
+    </div>
+
+    <!-- Team Section Card -->
+    <div style="background: white; padding: 50px; border-radius: 20px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); margin-bottom: 40px;">
+        <section class="team-section fade-in">
+            <h2 class="section-title" style="text-align: center;">Meet Our Team</h2>
+            <p class="team-intro" style="text-align: center;">Our leadership team is dedicated to creating the best tutoring experience for every student</p>
+
+            <div class="team-grid">
+                <!-- Team Member 1 -->
+                <div class="team-card hover-lift">
+                    <div class="team-image-placeholder">
+                        <img src="https://via.placeholder.com/200?text=Leader+1" alt="Team Lead">
+                    </div>
+                    <h3>Sarah Johnson</h3>
+                    <p class="team-role">Co-Founder & Director</p>
+                    <p class="team-bio">Mathematics educator with 8+ years of experience helping students master algebra and geometry</p>
+                </div>
+
+                <!-- Team Member 2 -->
+                <div class="team-card hover-lift">
+                    <div class="team-image-placeholder">
+                        <img src="https://via.placeholder.com/200?text=Leader+2" alt="Team Member">
+                    </div>
+                    <h3>Michael Chen</h3>
+                    <p class="team-role">Co-Founder & Mentor Coordinator</p>
+                    <p class="team-bio">Former tutor turned leader, passionate about peer learning and student development</p>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div class="team-card hover-lift">
+                    <div class="team-image-placeholder">
+                        <img src="https://via.placeholder.com/200?text=Leader+3" alt="Team Member">
+                    </div>
+                    <h3>Emily Rodriguez</h3>
+                    <p class="team-role">Operations Manager</p>
+                    <p class="team-bio">Ensures every student gets the support they need and every session runs smoothly</p>
+                </div>
+
+                <!-- Team Member 4 -->
+                <div class="team-card hover-lift">
+                    <div class="team-image-placeholder">
+                        <img src="https://via.placeholder.com/200?text=Leader+4" alt="Team Member">
+                    </div>
+                    <h3>David Park</h3>
+                    <p class="team-role">Lead Mentor & Curriculum Designer</p>
+                    <p class="team-bio">Expert in calculus and advanced mathematics, creating engaging learning materials</p>
+                </div>
             </div>
-            <div id="values" class="mission-info">
-                <h3>Our Core Values</h3>
-                <ul class="values-list">
-                    <li><strong>Accessibility:</strong> Making quality tutoring available to everyone</li>
-                    <li><strong>Support:</strong> Creating a judgment-free learning environment</li>
-                    <li><strong>Growth:</strong> Fostering academic and personal development</li>
-                    <li><strong>Community:</strong> Building connections between students and mentors</li>
-                </ul>
+        </section>
+    </div>
+
+    <!-- Our Story Card -->
+    <div style="background: white; padding: 50px; border-radius: 20px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); margin-bottom: 40px;">
+        <section class="story-section fade-in">
+            <h2 class="section-title" style="text-align: center;">Our Story</h2>
+            <div class="story-content">
+                <p>Student Math Mentors was founded on a simple belief: every student can excel in mathematics with the right support and guidance. What started as a small group of passionate tutors has grown into a thriving community of mentors and learners.</p>
+                <p>Our founders realized that many students struggled not because of lack of intelligence, but because they needed a relatable mentor who understood their challenges. Today, we're proud to have helped hundreds of students discover their potential and build confidence in mathematics.</p>
             </div>
+        </section>
+    </div>
+
+    <!-- Call to Action -->
+    <section class="cta-section fade-in">
+        <h2>Ready to Get Started?</h2>
+        <p>Join hundreds of students who have transformed their math skills with Student Math Mentors</p>
+        <div class="cta-buttons">
+            <button class="cta-btn primary-btn" onclick="window.location.href='contact.html'">Get in Touch</button>
+            <button class="cta-btn secondary-btn" onclick="window.location.href='volunteer.html'">Become a Mentor</button>
         </div>
     </section>
-</section>
-
-<section class="why-choose-us fade-in">
-    <h2 class="section-title">Why Choose Student Math Mentors?</h2>
-    <div class="benefits-grid">
-        <div class="benefit-card slide-up">
-
-            <h3>Expert Mentors</h3>
-            <p>Carefully selected peer mentors who excel in mathematics and have a passion for teaching</p>
-        </div>
-        <div class="benefit-card slide-up">
-
-            <h3>Flexible Scheduling</h3>
-            <p>Sessions scheduled at times convenient for both students and mentors</p>
-        </div>
-        <div class="benefit-card slide-up">
-
-            <h3>Personalized Learning</h3>
-            <p>Customized lesson plans tailored to individual student needs and goals</p>
-        </div>
-        <div class="benefit-card slide-up">
-            <h3>Proven Results</h3>
-            <p>Documented success in helping students improve grades and test scores</p>
-        </div>
-    </div>
-</section>
-
-<div class="divider"></div>
-
-<section class="team-section fade-in">
-    <h2 class="section-title">Meet Our Team</h2>
-    <p class="team-intro">Our leadership team is dedicated to creating the best tutoring experience for every student</p>
-
-    <div class="team-grid">
-        <div class="team-card hover-lift">
-            <div class="team-image-placeholder">
-                <img src="https://via.placeholder.com/200?text=Leader+1" alt="Team Lead">
-            </div>
-            <h3>rendom person </h3>
-            <p class="team-role">Co-Founder & Director</p>
-            <p class="team-bio">Mathematics educator with 8+ years of experience helping students master algebra and geometry</p>
-        </div>
-
-        <div class="team-card hover-lift">
-            <div class="team-image-placeholder">
-                <img src="https://via.placeholder.com/200?text=Leader+2" alt="Team Member">
-            </div>
-            <h3>random </h3>
-            <p class="team-role">Co-Founder & Mentor Coordinator</p>
-            <p class="team-bio">Former tutor turned leader, passionate about peer learning and student development</p>
-        </div>
-
-        <div class="team-card hover-lift">
-            <div class="team-image-placeholder">
-                <img src="https://via.placeholder.com/200?text=Leader+3" alt="Team Member">
-            </div>
-            <h3>Emily Rodriguez</h3>
-            <p class="team-role">Operations Manager</p>
-            <p class="team-bio">Ensures every student gets the support they need and every session runs smoothly</p>
-        </div>
-
-        <div class="team-card hover-lift">
-            <div class="team-image-placeholder">
-                <img src="https://via.placeholder.com/200?text=Leader+4" alt="Team Member">
-            </div>
-            <h3>David Park</h3>
-            <p class="team-role">Lead Mentor & Curriculum Designer</p>
-            <p class="team-bio">Expert in calculus and advanced mathematics, creating engaging learning materials</p>
-        </div>
-    </div>
-</section>
-
-<div class="divider"></div>
-
-<section class="story-section fade-in">
-    <h2 class="section-title">Our Story</h2>
-    <div class="story-content">
-        <p>Student Math Mentors was founded on a simple belief: every student can excel in mathematics with the right support and guidance. What started as a small group of passionate tutors has grown into a thriving community of mentors and learners.</p>
-        <p>Our founders realized that many students struggled not because of lack of intelligence, but because they needed a relatable mentor who understood their challenges. Today, we're proud to have helped hundreds of students discover their potential and build confidence in mathematics.</p>
-    </div>
-</section>
-
-<section class="cta-section fade-in">
-    <h2>Ready to Get Started?</h2>
-    <p>Join hundreds of students who have transformed their math skills with Student Math Mentors</p>
-    <div class="cta-buttons">
-        <button class="cta-btn primary-btn" onclick="window.location.href='contact.html'">Get in Touch</button>
-        <button class="cta-btn secondary-btn" onclick="window.location.href='volunteer.html'">Become a Mentor</button>
-    </div>
-</section>
-</body>
+</div>
 
 <script>
     function toggleMissionInfo(infoType) {
@@ -164,7 +181,6 @@
         // Mark clicked button as active
         event.target.classList.add('active');
     }
-
 </script>
 </body>
 </html>
