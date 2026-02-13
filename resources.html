@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,6 +21,7 @@
     }
 
     .fade-in {
+      opacity: 0;
       animation: fadeIn 0.8s ease-out forwards;
     }
 
@@ -38,6 +38,7 @@
     }
 
     .slide-up {
+      opacity: 0;
       animation: slideUp 0.8s ease-out forwards;
     }
 
@@ -51,76 +52,37 @@
     .grade-card:nth-child(8) { animation-delay: 0.8s; }
     .grade-card:nth-child(9) { animation-delay: 0.9s; }
 
-    /* Navigation styles */
-    navigation {
-      display: flex;
-      justify-content: center;
-      margin-top: 20px; 
-      margin-bottom: 30px;
-    }
-
-    navigation ul {
-      list-style: none;
-      display: flex;
-      gap: 15px; 
-      padding: 15px 25px;
-      background-color: #f5f5f5;
-      border-radius: 25px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    navigation li a {
-      text-decoration: none;
-      padding: 10px 18px;
-      border-radius: 25px;
-      background-color: #f5f5f5;
-      color: #0A1F44;
-      font-weight: 600;
-      transition: all 0.25s ease;
-    }
-
-    navigation li a:hover {
-      background-color: #cea2f5;
-      color: #fff;
-      transform: translateY(-2px); 
-    }
-
     body {
       font-family: "DM Sans", Lato, Quicksand, sans-serif;
       margin: 0;
-      background-color: #ffffff;
+      background-color: #eeebeb;
       color: #0A1F44;
-      padding: 20px;
+      padding: 0;
     }
 
-/* Welcome Section */
-.resources-hero {
-  text-align: center;
-  padding: 60px 20px 40px;
-  background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%);
-  border-radius: 20px;
-  margin-bottom: 50px;
-}
+    /* Resources Hero Section - matching volunteer.html style */
+    .resources-hero {
+      text-align: center;
+      padding: 60px 20px 40px;
+      background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%);
+      border-radius: 20px;
+      margin: 0 20px 50px 20px;
+    }
 
+    .resources-hero h1 {
+      font-size: 3rem;
+      color: #0A1F44;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
 
-.resources-hero h1 {
-  font-size: 3rem;
-  color: #0A1F44;
-  margin-bottom: 15px;
-  font-weight: 700;
-}
-
-
-.resources-hero p {
-  font-size: 1.2rem;
-  color: #666;
-  max-width: 700px;
-  margin: 0 auto;
-  line-height: 1.6;
-}
-
+    .resources-hero p {
+      font-size: 1.2rem;
+      color: #666;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
 
     /* Grade Selection Section */
     .grade-selection-container {
@@ -154,6 +116,7 @@
       text-decoration: none;
       color: inherit;
       cursor: pointer;
+      opacity: 0;
       animation: slideUp 0.8s ease-out forwards;
     }
 
@@ -203,11 +166,11 @@
 
     /* Info Section */
     .resources-info {
-      background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%);
+      background: white;
       border-radius: 15px;
       padding: 40px;
       max-width: 900px;
-      margin: 0 auto;
+      margin: 0 auto 40px;
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
       text-align: center;
     }
@@ -241,104 +204,107 @@
       .grade-icon {
         font-size: 2.5rem;
       }
-
-      navigation ul {
-        gap: 10px;
-        padding: 10px 15px;
-      }
-
-      navigation li a {
-        padding: 8px 12px;
-        font-size: 0.9rem;
-      }
     }
   </style>
 </head>
 <body>
-  <navigation>
-    <ul class="nav-links">
-      <img src="logo.png" alt="Student Math Mentors Logo" width="50" height="50" class="navbar" />
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About Us</a></li>
-      <li><a href="#services">Our Services</a></li>
-      <li><a href="#volunteer">Volunteer with Us</a></li>
-      <li><a href="resources.html">Student Resources</a></li>
-      <li><a href="contact.html">Contact Us</a></li>
-    </ul>
-  </navigation>
+<!-- Back Button -->
+<div style="text-align: center; padding: 30px 20px 20px;">
+  <a href="index.html" style="display: inline-block; padding: 12px 30px; background-color: #0A1F44; color: white; text-decoration: none; border-radius: 25px; font-weight: 600; transition: all 0.3s ease; font-family: 'DM Sans', Lato, Quicksand, sans-serif;">← Back to Home</a>
+</div>
 
-  <section class="resources-hero fade-in">
-    <h1>Welcome to Student Resources</h1>
-    <p>Select your grade level below to access practice materials, tutorials, and learning resources designed just for you. Our resources are created to help you succeed in mathematics!</p>
-  </section>
+<!-- Hero Section -->
+<section class="resources-hero fade-in">
+  <h1>Student Resources</h1>
+  <p>Select your grade level below to access practice materials, tutorials, and learning resources designed just for you. Our resources are created to help you succeed in mathematics!</p>
+</section>
 
-  <div class="grade-selection-container">
-    <h2 class="grade-selection-title fade-in">Select Your Grade</h2>
-    
-    <div class="grade-grid">
-      <a href="resources-k.html" class="grade-card">
-        <h3>Kindergarten</h3>
-        <p>Numbers & Shapes</p>
-        <span class="grade-badge">Grade K</span>
-      </a>
+<!-- Grade Selection Section -->
+<div class="grade-selection-container">
+  <h2 class="grade-selection-title fade-in">Select Your Grade</h2>
 
-      <a href="resources-1.html" class="grade-card">
-        <div class="grade-icon"></div>
-        <h3>Grade 1</h3>
-        <p>Addition & Subtraction</p>
-        <span class="grade-badge">Grade 1</span>
-      </a>
+  <div class="grade-grid">
+    <!-- Kindergarten -->
+    <a href="resources-k.html" class="grade-card">
+      <div class="grade-icon">🎨</div>
+      <h3>Kindergarten</h3>
+      <p>Numbers & Shapes</p>
+      <span class="grade-badge">Grade K</span>
+    </a>
 
-      <a href="resources-2.html" class="grade-card">
-        <h3>Grade 2</h3>
-        <p>Basic Operations</p>
-        <span class="grade-badge">Grade 2</span>
-      </a>
+    <!-- Grade 1 -->
+    <a href="resources-1.html" class="grade-card">
+      <div class="grade-icon">🔢</div>
+      <h3>Grade 1</h3>
+      <p>Addition & Subtraction</p>
+      <span class="grade-badge">Grade 1</span>
+    </a>
 
-      <a href="resources-3.html" class="grade-card">
+    <!-- Grade 2 -->
+    <a href="resources-2.html" class="grade-card">
+      <div class="grade-icon">➕</div>
+      <h3>Grade 2</h3>
+      <p>Basic Operations</p>
+      <span class="grade-badge">Grade 2</span>
+    </a>
+
+    <!-- Grade 3 -->
+    <a href="resources-3.html" class="grade-card">
+      <div class="grade-icon">✖️</div>
       <h3>Grade 3</h3>
-        <p>Multiplication & Division</p>
-        <span class="grade-badge">Grade 3</span>
-      </a>
+      <p>Multiplication & Division</p>
+      <span class="grade-badge">Grade 3</span>
+    </a>
 
-      <a href="resources-4.html" class="grade-card">
-        <h3>Grade 4</h3>
-        <p>Fractions & Decimals</p>
-        <span class="grade-badge">Grade 4</span>
-      </a>
+    <!-- Grade 4 -->
+    <a href="resources-4.html" class="grade-card">
+      <div class="grade-icon">🔣</div>
+      <h3>Grade 4</h3>
+      <p>Fractions & Decimals</p>
+      <span class="grade-badge">Grade 4</span>
+    </a>
 
-      <a href="resources-5.html" class="grade-card">
-        <h3>Grade 5</h3>
-        <p>Data & Measurement</p>
-        <span class="grade-badge">Grade 5</span>
-      </a>
+    <!-- Grade 5 -->
+    <a href="resources-5.html" class="grade-card">
+      <div class="grade-icon">📊</div>
+      <h3>Grade 5</h3>
+      <p>Data & Measurement</p>
+      <span class="grade-badge">Grade 5</span>
+    </a>
 
-      <a href="resources-6.html" class="grade-card">
-        <h3>Grade 6</h3>
-        <p>Ratios & Geometry</p>
-        <span class="grade-badge">Grade 6</span>
-      </a>
+    <!-- Grade 6 -->
+    <a href="resources-6.html" class="grade-card">
+      <div class="grade-icon">📐</div>
+      <h3>Grade 6</h3>
+      <p>Ratios & Geometry</p>
+      <span class="grade-badge">Grade 6</span>
+    </a>
 
-      <a href="resources-7.html" class="grade-card">
-        <h3>Grade 7</h3>
-        <p>Pre-Algebra</p>
-        <span class="grade-badge">Grade 7</span>
-      </a>
+    <!-- Grade 7 -->
+    <a href="resources-7.html" class="grade-card">
+      <div class="grade-icon">🧮</div>
+      <h3>Grade 7</h3>
+      <p>Pre-Algebra</p>
+      <span class="grade-badge">Grade 7</span>
+    </a>
 
-      <a href="resources-8.html" class="grade-card">
-        <h3>Grade 8</h3>
-        <p>Algebra I</p>
-        <span class="grade-badge">Grade 8</span>
-      </a>
-    </div>
+    <!-- Grade 8 -->
+    <a href="resources-8.html" class="grade-card">
+      <div class="grade-icon">📈</div>
+      <h3>Grade 8</h3>
+      <p>Algebra I</p>
+      <span class="grade-badge">Grade 8</span>
+    </a>
   </div>
+</div>
 
-  <div class="divider"></div>
+<div class="divider"></div>
 
-  <section class="resources-info fade-in">
-    <h2>How to Use These Resources</h2>
-    <p>Each grade level has been carefully curated with practice worksheets, video tutorials, interactive games, and step-by-step guides. Whether you're preparing for a test, catching up on a topic, or getting ahead, we have something for you. Start by selecting your grade above and explore at your own pace!</p>
-  </section>
+<!-- Info Section -->
+<section class="resources-info fade-in">
+  <h2>How to Use These Resources</h2>
+  <p>Each grade level has been carefully curated with practice worksheets, video tutorials, interactive games, and step-by-step guides. Whether you're preparing for a test, catching up on a topic, or getting ahead, we have something for you. Start by selecting your grade above and explore at your own pace!</p>
+</section>
 
 </body>
 </html>
