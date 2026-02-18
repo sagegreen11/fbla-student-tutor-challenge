@@ -6,28 +6,26 @@
     <title>Diagnostic Quiz</title>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root{--accent:#276ef1;--muted:#666}
-        html,body{height:100%;margin:0;font-family:'DM Sans',system-ui,Segoe UI,Roboto,Arial,sans-serif;background:#f7f9ff;color:#111}
-        .wrap{max-width:880px;margin:40px auto;padding:24px;background:white;border-radius:12px;box-shadow:0 6px 30px rgba(34,60,80,0.06)}
-        h1{margin:0 0 8px;font-size:20px}
-        .meta{color:var(--muted);font-size:14px;margin-bottom:18px}
-        .level-pill{display:inline-block;padding:6px 10px;background:#eef4ff;border-radius:999px;color:var(--accent);font-weight:600;margin-bottom:12px}
-        .q-card{padding:18px;border-radius:8px;background:#fbfdff;border:1px solid #eef6ff}
-        .question{font-size:18px;margin:0 0 12px}
-        .choices{list-style:none;padding:0;margin:0 0 12px}
-        .choices li{margin-bottom:8px}
-        .choice-btn{display:block;width:100%;text-align:left;padding:10px 12px;border-radius:8px;border:1px solid #e6eefc;background:white;cursor:pointer}
-        .choice-btn:hover{background:#f3f7ff}
-        .controls{display:flex;gap:8px;flex-wrap:wrap}
-        button.btn{background:var(--accent);color:white;border:none;padding:10px 14px;border-radius:8px;cursor:pointer}
-        button.secondary{background:#eef2ff;color:var(--accent);border:1px solid #dbe9ff}
-        button.ghost{background:transparent;border:1px dashed #d0d7ee;color:var(--muted)}
-        .feedback{margin-top:10px;font-weight:600}
-        .small{font-size:13px;color:var(--muted)}
-    </style>
+        <link rel="stylesheet" href="style.css">
+
+ 
 </head>
 <body>
+     <nav>
+    <div class="nav-container">
+      <div class="logo">
+        <img src="logo.png" alt="Student Math Mentors Logo" width="80" height="70" class="navbar" /> </li>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="volunteer.html">Volunteer</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="contact.html" class="btn-login">Get Started</a></li>
+      </ul>
+    </div>
+    </nav>
 <main class="wrap">
     <h1>Diagnostic Quiz (Grades K–8)</h1>
     <div class="meta">Adaptive quiz: answer correctly to get harder questions. Use "I don't know" for another question at this level, or "I haven't learned this yet" to skip.</div>
@@ -112,47 +110,93 @@
     const feedback = document.getElementById('feedback');
     const progress = document.getElementById('progress');
 
+    window.addEventListener('error', function(ev){
+        console.error('Uncaught error:', ev.error || ev.message || ev);
+        feedback.textContent = 'An unexpected error occurred.';
+    });
+    window.addEventListener('unhandledrejection', function(ev){
+        console.error('Unhandled promise rejection:', ev.reason);
+        feedback.textContent = 'An unexpected error occurred.';
+    });
+
     function updateProgress(){
         const level = levels[curLevelIdx];
         progress.textContent = `Level ${level} — question ${curQIdx+1} of ${bank[level].length}`;
     }
 
     function loadQuestion(){
-        const level = levels[curLevelIdx];
-        const qObj = bank[level][curQIdx];
-        levelLabel.textContent = `Level: ${level}`;
-        questionText.textContent = qObj.q;
-        choicesEl.innerHTML = '';
-        qObj.choices.forEach((c,i)=>{
-            const li = document.createElement('li');
-            const btn = document.createElement('button');
-            btn.className = 'choice-btn';
-            btn.type = 'button';
-            btn.dataset.index = i;
-            btn.textContent = c;
-            btn.onclick = ()=>{
-                // submit answer immediately on click
-                submitAnswer(i);
-            };
-            li.appendChild(btn);
-            choicesEl.appendChild(li);
-        });
-        feedback.textContent = '';
-        updateProgress();
+        try{
+            const level = levels[curLevelIdx];
+            levelLabel.textContent = `Level: ${level}`;
+
+            if(!Array.isArray(levels) || levels.length === 0){
+                questionText.textContent = 'No levels configured.';
+                feedback.textContent = 'Error: levels array is empty or missing.';
+                console.error('levels is invalid', levels);
+                return;
+            }
+
+            if(!bank || typeof bank !== 'object'){
+                questionText.textContent = 'Question bank missing.';
+                feedback.textContent = 'Error: question bank is not available.';
+                console.error('bank is invalid', bank);
+                return;
+            }
+
+            if(!bank[level]){
+                questionText.textContent = 'No questions found for this level.';
+                feedback.textContent = `Error: question bank missing for level ${level}.`;
+                console.error('Question bank missing for level:', level);
+                return;
+            }
+
+            const qArr = bank[level];
+            if(curQIdx < 0 || curQIdx >= qArr.length){
+                questionText.textContent = 'No question available.';
+                feedback.textContent = `Error: question index ${curQIdx} not found for level ${level}.`;
+                console.error('Question object missing:', {level, curQIdx});
+                return;
+            }
+
+            const qObj = qArr[curQIdx];
+            if(!qObj || !Array.isArray(qObj.choices)){
+                questionText.textContent = 'Invalid question format.';
+                feedback.textContent = 'Error: question data malformed.';
+                console.error('Invalid question object', qObj);
+                return;
+            }
+
+            questionText.textContent = qObj.q;
+            choicesEl.innerHTML = '';
+            qObj.choices.forEach((c,i)=>{
+                const li = document.createElement('li');
+                const btn = document.createElement('button');
+                btn.className = 'choice-btn';
+                btn.type = 'button';
+                btn.dataset.index = i;
+                btn.textContent = c;
+                btn.onclick = ()=> submitAnswer(i);
+                li.appendChild(btn);
+                choicesEl.appendChild(li);
+            });
+            feedback.textContent = '';
+            updateProgress();
+        }catch(err){
+            console.error('loadQuestion failed', err);
+            questionText.textContent = 'Failed to load question.';
+            feedback.textContent = 'An error occurred while loading the question. See console for details.';
+        }
     }
 
     function nextQuestionSameLevel(repeat=false){
         const level = levels[curLevelIdx];
         if(!repeat){
-            // move to next question index if available
             if(curQIdx < bank[level].length -1){
                 curQIdx++;
             } else {
-                // all questions attempted and answered — advance level
                 return nextLevel();
             }
         } else {
-            // pick a different question index at same level
             const choices = [...Array(bank[level].length).keys()].filter(i=>i!==curQIdx);
             curQIdx = choices[Math.floor(Math.random()*choices.length)];
         }
@@ -167,19 +211,14 @@
             if(sel === qObj.correct){
                 feedback.textContent = 'Correct! Moving to a harder question.';
                 results[level].score++;
-                // attempt harder question (next in order) or advance level
                 setTimeout(()=> nextQuestionSameLevel(false),700);
             } else {
-                // record this question index as wrong (unique)
                 if(!results[level].wrongIndices.includes(curQIdx)) results[level].wrongIndices.push(curQIdx);
-                // if all questions for this level have been answered incorrectly, end early
                 if(results[level].wrongIndices.length >= bank[level].length){
-                    // show ending screen indicating the student doesn't know this level yet
                     setTimeout(()=> showUnknown(level),300);
                     return;
                 }
                 feedback.textContent = 'Incorrect — try another question at this level or choose "I haven\'t learned this yet".';
-                // present another question at same level (random different)
                 setTimeout(()=> nextQuestionSameLevel(true),800);
             }
         }
@@ -203,17 +242,14 @@
             curQIdx = 0;
             loadQuestion();
         } else {
-            // finished all levels
             showSummary();
         }
     }
 
     function showSummary(){
-        // Build summary header
         document.getElementById('app').innerHTML = `<h2>Quiz complete</h2><p class="small">Summary:</p>`;
         const wrap = document.createElement('div');
 
-        // Add per-level results
         Object.keys(bank).forEach(l=>{
             const res = results[l] || {score:0,notLearned:false};
             const p = document.createElement('p');
@@ -222,11 +258,8 @@
             wrap.appendChild(p);
         });
 
-        // Recommendation logic:
-        // 1) Prefer the highest level where student scored >= 2/3 of questions and didn't mark "not learned".
-        // 2) If none, pick the level with the highest raw score.
+       
         let recommended = null;
-        // look for highest level meeting threshold
         for(let i=levels.length-1;i>=0;i--){
             const lvl = levels[i];
             const res = results[lvl] || {score:0,notLearned:false};
@@ -237,7 +270,6 @@
         }
 
         if(!recommended){
-            // pick level with highest score (tie -> lowest level index)
             let bestScore = -1; let bestLevel = levels[0];
             for(const l of levels){
                 const res = results[l] || {score:0};
@@ -255,10 +287,44 @@
     }
 
     function showUnknown(level){
-        document.getElementById('app').innerHTML = `<h2>Quiz complete</h2><p class="small">You answered all questions at level ${level} incorrectly.</p><p class="small">It looks like you don't know this level yet. Consider starting at a lower level or reviewing the topics before retrying.</p>`;
+        const idx = levels.indexOf(level);
+        const prevIdx = idx - 1;
+        let recommendedLevel = null;
+        if(prevIdx >= 0){
+            const prev = levels[prevIdx];
+            const prevRes = results[prev] || {score:0};
+            if(prevRes.score >= 1) recommendedLevel = prev;
+        }
+
+        const resourcesLink = 'resources.html';
+        const recommendedLink = recommendedLevel ? `resources-${(recommendedLevel==='K'?'k':recommendedLevel)}.html` : null;
+
+        let html = `<h2>Quiz complete</h2><p class="small">You answered all questions at level ${level} incorrectly.</p>`;
+        if(recommendedLevel){
+            html += `<p class="small">Based on your answers at the lower level, we recommend starting at level ${recommendedLevel}.</p>`;
+        } else if(prevIdx >= 0){
+            html += `<p class="small">It looks like you don't know this level yet. Consider starting at level ${levels[prevIdx]} or reviewing the topics before retrying.</p>`;
+        } else {
+            html += `<p class="small">It looks like you don't know this level yet. Consider reviewing the topics before retrying.</p>`;
+        }
+
+        html += `<p style="margin-top:12px"><a class="btn-primary" href="${resourcesLink}">Back to Resources</a>`;
+        if(recommendedLink){
+            html += `<a class="btn-primary" href="${recommendedLink}">Go to Level ${recommendedLevel} Resources</a>`;
+        }
+        html += `</p>`;
+
+        document.getElementById('app').innerHTML = html;
     }
 
     idkBtn.addEventListener('click', handleIDK);
     notLearnedBtn.addEventListener('click', handleNotLearned);
-    loadQuestion();
+    try{
+        loadQuestion();
+    }catch(e){
+        console.error('Initial loadQuestion threw', e);
+        feedback.textContent = 'Initialization error — check console.';
+    }
+</script>
+</body>
 
