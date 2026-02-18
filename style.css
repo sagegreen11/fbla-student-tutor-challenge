@@ -251,6 +251,201 @@ footer p {
   color:#94a3b8;
 }
 
+/*Student sign in*/
+ .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.3s ease;
+    overflow-y: auto;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .modal-content {
+    background-color: white;
+    margin: 3% auto;
+    padding: 0;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 700px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    animation: slideDown 0.3s ease;
+  }
+
+  @keyframes slideDown {
+    from {
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .modal-header {
+    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+    color: white;
+    padding: 30px;
+    border-radius: 20px 20px 0 0;
+    text-align: center;
+  }
+
+  .modal-header h2 {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+  }
+
+  .modal-header p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+  }
+
+  .modal-body {
+    padding: 30px;
+  }
+
+  .close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+  }
+
+  .close:hover,
+  .close:focus {
+    opacity: 1;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #1a1a1a;
+    font-size: 14px;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: 'DM Sans', sans-serif;
+    transition: border-color 0.3s;
+    background-color: #fafafa;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: #6366f1;
+    background-color: white;
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  @media (max-width: 768px) {
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .required {
+    color: #e74c3c;
+    margin-left: 3px;
+  }
+
+  .btn-submit {
+    width: 100%;
+    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+  }
+
+  .btn-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  .success-message {
+    display: none;
+    background: #d1fae5;
+    color: #065f46;
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 20px;
+    text-align: center;
+    font-weight: 600;
+    border: 2px solid #10b981;
+    animation: slideIn 0.5s ease;
+  }
+
+  .error-message {
+    display: none;
+    background: #fee2e2;
+    color: #991b1b;
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 20px;
+    text-align: center;
+    font-weight: 600;
+    border: 2px solid #ef4444;
+    animation: slideIn 0.5s ease;
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
 
 /* OLD about us page */
 .container {
@@ -1229,7 +1424,7 @@ mainp {
             margin: 0;
             padding: 0;
         }
-
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;

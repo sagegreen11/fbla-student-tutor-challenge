@@ -17,6 +17,7 @@
             margin-bottom: 50px;
         }
 
+
         .volunteer-hero h1 {
             font-size: 3rem;
             color: #0A1F44;
@@ -248,9 +249,21 @@
     </style>
 </head>
 <body>
-<div style="text-align: center; padding: 30px 20px 20px;">
-    <a href="index.html" style="display: inline-block; padding: 12px 30px; background-color: #0A1F44; color: white; text-decoration: none; border-radius: 25px; font-weight: 600; transition: all 0.3s ease; font-family: 'DM Sans', Lato, Quicksand, sans-serif;">← Back to Home</a>
-</div>
+<nav>
+    <div class="nav-container">
+      <div class="logo">
+        <img src="logo.png" alt="Student Math Mentors Logo" width="80" height="70" class="navbar" /> </li>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="volunteer.html">Volunteer</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="contact.html" class="btn-login">Get Started</a></li>
+      </ul>
+    </div>
+  </nav>
 <section class="volunteer-hero fade-in">
     <h1>Become a Tutor</h1>
     <p>Join our team of passionate student tutors and make a real difference in your community. Help younger students build confidence and perfomr well in math</p>
@@ -270,10 +283,7 @@
             <h3>Earn Volunteer Hours</h3>
             <p>Receive official documentation for school requirements and college applications</p>
         </div>
-        <div class="benefit-item slide-up">
-            <h3>Strengthen Your Skills</h3>
-            <p>Reinforce your own math skills while teaching others</p>
-        </div>
+        
     </div>
 </section>
 
@@ -426,10 +436,13 @@
         });
     });
 
+
+    // scroll animation
     const observerOptions = {
         threshold: 0.1,
-        rootMargin: '0px 0px -550px 0px'
+        rootMargin: '0px 0px -50px 0px'
     };
+
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
