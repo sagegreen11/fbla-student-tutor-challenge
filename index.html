@@ -98,7 +98,7 @@
       <li><a href="services.html">Services</a></li>
       <li><a href="volunteer.html">Volunteer</a></li>
       <li><a href="resources.html">Resources</a></li>
-      <li><a href="#" class="btn-login" id="signupBtn">Student Signup</a></li>
+      <li><a href="#" class="btn-login" id="signupBtn" style="color: white;">Student Signup</a></li>
       <h1 id="title"></h1>
       <p id="desc"></p>
     </ul>
@@ -120,7 +120,7 @@
         <div class="circle-accent circle-1"></div>
         <div class="circle-accent circle-2"></div>
         <div class="hero-image-container">
-          <img src="https://epe.brightspotcdn.com/ce/1b/4dbafb4c44e0921e72cd7c242b01/teacher-tutor-student-022023-187244393.jpg" alt="Student studying online">
+          <img src="hero.png" alt="Student studying online">
         </div>
       </div>
     </div>
@@ -132,15 +132,15 @@
       <h2>Our Impact</h2>
       <div class="stats-numbers">
         <div class="stat-item">
-          <div class="stat-number">500+</div>
+          <div class="stat-number">600+</div>
           <div class="stat-label">Tutoring Hours</div>
         </div>
         <div class="stat-item">
-          <div class="stat-number">120</div>
+          <div class="stat-number">~50</div>
           <div class="stat-label">Students Helped</div>
         </div>
         <div class="stat-item">
-          <div class="stat-number">30</div>
+          <div class="stat-number">~45</div>
           <div class="stat-label">Volunteers</div>
         </div>
       </div>
@@ -157,7 +157,7 @@
           <a href="about.html" class="btn-secondary">About Our Tutors</a>
         </div>
         <div>
-          <img src="https://images.seattletimes.com/wp-content/uploads/2023/08/08112023_2-math_134131.jpg?d=2040x1361" alt="Students collaborating" style="width: 100%; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.1);">
+          <img src="aboutus.png" alt="Students collaborating" style="width: 100%; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.1);">
         </div>
       </div>
     </div>
@@ -168,7 +168,7 @@
     <div class="section-container">
       <div class="section-grid">
         <div>
-          <img src="https://www.ziprecruiter.com/svc/fotomat/public-ziprecruiter/cms/1155064216TeenageTutor.jpg=ws1280x960" alt="Tutoring session" style="width: 100%; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.1);">
+          <img src="services.png" alt="Tutoring session" style="width: 100%; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.1);">
         </div>
         <div class="section-content">
           <h2>Our Services</h2>
@@ -189,7 +189,7 @@
           <a href="resources.html" class="btn-secondary">Explore Resources</a>
         </div>
         <div>
-          <img src="https://statik.unesa.ac.id/profileunesa_konten_statik%2Fuploads%2Fs3tp.pasca.unesa.ac.id/thumbnail/f69bfbb2-70cd-4c06-98fa-24bbfb579128.jpg" alt="Learning resources" style="width: 100%; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.1);">
+          <img src="resources.png" alt="Learning resources" style="width: 100%; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.1);">
         </div>
       </div>
     </div>
@@ -200,7 +200,7 @@
   <div class="section-container">
     <div class="section-grid">
       <div>
-        <img src="https://pace.princeton.edu/sites/g/files/toruqf6286/files/styles/16x9_1440w_810h/public/pages/student_volunteers_council_new_alternate_small.jpg?itok=FcRoC9MH" alt="Volunteer tutors" style="width: 100%; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.1);">
+        <img src="volunteer.png" alt="Volunteer tutors" style="width: 100%; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.1);">
       </div>
       <div class="section-content">
         <h2>Volunteer with Us</h2>
@@ -261,21 +261,18 @@
     }
   }
 
-  // Handle form submission
   form.addEventListener('submit', function(e) {
     e.preventDefault();
 
-    // Disable submit button
     submitBtn.disabled = true;
     submitBtn.textContent = 'Submitting...';
 
-    // Hide any previous messages
     successMessage.style.display = 'none';
     errorMessage.style.display = 'none';
 
     const formData = new FormData(form);
 
-    // Send to Formspree
+    // sned to formspree
     fetch(form.action, {
       method: 'POST',
       body: formData,
@@ -285,16 +282,13 @@
     })
     .then(response => {
       if (response.ok) {
-        // Success!
         successMessage.style.display = 'block';
         successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
         form.reset();
 
-        // Re-enable button
         submitBtn.disabled = false;
         submitBtn.textContent = 'Sign Up for Tutoring';
 
-        // Hide success message and close modal after 5 seconds
         setTimeout(() => {
           successMessage.style.display = 'none';
           modal.style.display = 'none';
@@ -305,15 +299,12 @@
       }
     })
     .catch(error => {
-      // Error
       errorMessage.style.display = 'block';
       errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-      // Re-enable button
       submitBtn.disabled = false;
       submitBtn.textContent = 'Sign Up for Tutoring';
 
-      // Hide error message after 8 seconds
       setTimeout(() => {
         errorMessage.style.display = 'none';
       }, 8000);
