@@ -43,7 +43,6 @@
           box-shadow: 0 4px 12px rgba(206, 162, 245, 0.4);
         }
 
-        /* Hero Section */
         .about-hero {
           text-align: center;
           padding: 60px 20px 40px;
@@ -69,14 +68,12 @@
           line-height: 1.6;
         }
 
-        /* Container */
         .container {
           max-width: 1200px;
           margin: 0 auto;
           padding: 0 20px;
         }
 
-        /* Mission Card */
         .mission-card {
           background: white;
           border-radius: 20px;
@@ -106,7 +103,6 @@
           margin-right: auto;
         }
 
-        /* Interactive Buttons */
         .mission-buttons {
           display: flex;
           gap: 15px;
@@ -143,7 +139,6 @@
           box-shadow: 0 4px 12px rgba(10, 31, 68, 0.3);
         }
 
-        /* Mission Content Display */
         .mission-content-display {
           background: linear-gradient(135deg, #f8f9fa 0%, #f0f2f5 100%);
           border-radius: 15px;
@@ -211,7 +206,6 @@
           font-weight: 700;
         }
 
-        /* Why Choose Us Section */
         .why-choose-us {
           margin-bottom: 60px;
           padding: 60px 40px;
@@ -275,7 +269,6 @@
           font-size: 1rem;
         }
 
-        /* Success Stories Carousel Section */
         .team-section {
           margin-bottom: 60px;
           padding: 60px 40px;
@@ -328,19 +321,15 @@
           display: flex;
           flex-direction: column;
           align-items: center;
-          padding: 50px 40px;
+          padding: 40px 40px;
           text-align: center;
-          min-height: 450px;
         }
 
         .story-image-placeholder {
-          width: 200px;
-          height: 200px;
-          border-radius: 50%;
+          width: 100%;
+          height: 320px;
+          border-radius: 15px;
           background: linear-gradient(135deg, #cea2f5, #a8d5f5);
-          display: flex;
-          align-items: center;
-          justify-content: center;
           overflow: hidden;
           margin-bottom: 30px;
           box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
@@ -350,33 +339,26 @@
           width: 100%;
           height: 100%;
           object-fit: cover;
-        }
-
-        .story-card h3 {
-          color: #0A1F44;
-          font-size: 2rem;
-          margin-bottom: 10px;
-          font-weight: 700;
+          object-position: center;
         }
 
         .story-role {
           color: #cea2f5;
           font-weight: 600;
-          font-size: 14px;
+          font-size: 15px;
           text-transform: uppercase;
           letter-spacing: 1.5px;
-          margin-bottom: 25px;
+          margin-bottom: 20px;
         }
 
         .story-bio {
           color: #555;
-          font-size: 1.15rem;
+          font-size: 1.4rem;
           line-height: 1.8;
           max-width: 600px;
           font-style: italic;
         }
 
-        /* Carousel Navigation Buttons */
         .carousel-btn {
           position: absolute;
           top: 50%;
@@ -407,15 +389,9 @@
           transform: translateY(-50%) scale(0.95);
         }
 
-        .carousel-btn.prev {
-          left: 0;
-        }
+        .carousel-btn.prev { left: 0; }
+        .carousel-btn.next { right: 0; }
 
-        .carousel-btn.next {
-          right: 0;
-        }
-
-        /* Carousel Indicators */
         .carousel-indicators {
           display: flex;
           justify-content: center;
@@ -444,7 +420,6 @@
           background-color: #cea2f5;
         }
 
-        /* Story Section */
         .story-section {
           margin-bottom: 60px;
           padding: 60px 40px;
@@ -467,7 +442,6 @@
           text-align: justify;
         }
 
-        /* CTA Section */
         .cta-section {
           margin-bottom: 60px;
           padding: 60px 40px;
@@ -532,7 +506,6 @@
           transform: translateY(-3px);
         }
 
-        /* Divider */
         .divider {
           height: 4px;
           width: 60%;
@@ -541,80 +514,27 @@
           border-radius: 50px;
         }
 
-        /* Animations */
         @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes slideUp {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
+          from { opacity: 0; transform: translateY(30px); }
+          to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
-          .about-hero h1 {
-            font-size: 2rem;
-          }
-
-          .mission-title {
-            font-size: 2rem;
-          }
-
-          .section-title {
-            font-size: 2rem;
-          }
-
-          .mission-card {
-            padding: 35px 25px;
-          }
-
-          .why-choose-us,
-          .story-section,
-          .cta-section,
-          .team-section {
-            padding: 40px 25px;
-          }
-
-          .benefits-grid {
-            grid-template-columns: 1fr;
-          }
-
-          .carousel-container {
-            padding: 0 50px;
-          }
-
-          .carousel-btn {
-            width: 40px;
-            height: 40px;
-            font-size: 16px;
-          }
-
-          .story-card {
-            padding: 40px 30px;
-            min-height: 400px;
-          }
-
-          .story-card h3 {
-            font-size: 1.6rem;
-          }
-
-          .story-bio {
-            font-size: 1rem;
-          }
+          .about-hero h1 { font-size: 2rem; }
+          .mission-title { font-size: 2rem; }
+          .section-title { font-size: 2rem; }
+          .mission-card { padding: 35px 25px; }
+          .why-choose-us, .story-section, .cta-section, .team-section { padding: 40px 25px; }
+          .benefits-grid { grid-template-columns: 1fr; }
+          .carousel-container { padding: 0 50px; }
+          .carousel-btn { width: 40px; height: 40px; font-size: 16px; }
+          .story-image-placeholder { height: 220px; }
+          .story-bio { font-size: 1.15rem; }
         }
     </style>
 </head>
@@ -644,7 +564,6 @@
             <button class="mission-btn" onclick="toggleMissionInfo('values')">Our Values</button>
         </div>
 
-        <!-- Dynamic Content Display -->
         <div class="mission-content-display">
             <div id="approach" class="mission-info active-info">
                 <h3>Our Approach</h3>
@@ -666,7 +585,6 @@
         </div>
     </section>
 
-    <!-- Why Choose Us Section -->
     <section class="why-choose-us">
         <h2 class="section-title">Why Choose Student Math Mentors?</h2>
         <div class="benefits-grid">
@@ -695,9 +613,8 @@
 
     <div class="divider"></div>
 
-    <!-- Success Stories Carousel Section -->
     <section class="team-section">
-        <h2 class="section-title">Success Stories</h2>
+        <h2 class="section-title">Hear from our students and their parents</h2>
         <p class="team-intro">Real results from students who have transformed their math skills through our program</p>
 
         <div class="carousel-container">
@@ -706,57 +623,48 @@
 
             <div class="carousel-wrapper">
                 <div class="carousel-track">
-                    <!-- Success Story 1 -->
                     <div class="carousel-slide">
                         <div class="story-card">
                             <div class="story-image-placeholder">
-                                <img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?w=400&h=400&fit=crop" alt="Student studying with books">
+                                <img src="testimonial1.png" alt="Student studying with books">
                             </div>
-                            <h3>From C's to A's</h3>
-                            <p class="story-role">Grade 6 • Fractions & Decimals</p>
+                            <p class="story-role">Grade 6 • Probability</p>
                             <p class="story-bio">"I used to hate math class. After 3 months with my tutor, I'm now getting A's and have a better problem solving strategy."</p>
                         </div>
                     </div>
 
-                    <!-- Success Story 2 -->
                     <div class="carousel-slide">
                         <div class="story-card">
                             <div class="story-image-placeholder">
-                                <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=400&h=400&fit=crop" alt="Math equations on chalkboard">
+                                <img src="testimonial4.png" alt="Math equations on chalkboard">
                             </div>
-                            <h3>Algebra Breakthrough</h3>
-                            <p class="story-role">Grade 8 • Pre-Algebra</p>
+                            <p class="story-role">Grade 7 • Pre-Algebra</p>
                             <p class="story-bio">"My tutor explained things in a way that finally made sense. She is really funny too."</p>
                         </div>
                     </div>
 
-                    <!-- Success Story 3 -->
                     <div class="carousel-slide">
                         <div class="story-card">
                             <div class="story-image-placeholder">
-                                <img src="https://images.unsplash.com/photo-1596496356848-d7be0746e5ea?w=400&h=400&fit=crop" alt="Colorful math supplies">
+                                <img src="testimonial3.png" alt="Colorful math supplies">
                             </div>
-                            <h3>Confidence Builder</h3>
-                            <p class="story-role">Grade 4 • Multiplication</p>
-                            <p class="story-bio">"My child was scared to raise my hand in math class, but now he volunteers to solve problems on the board every day"</p>
+                            <p class="story-role">Grade 3 • Multiplication</p>
+                            <p class="story-bio">"My child has gained a lot of confidence in her multiplication skills. Her tutor is very kind and friendly."</p>
                         </div>
                     </div>
 
-                    <!-- Success Story 4 -->
                     <div class="carousel-slide">
                         <div class="story-card">
                             <div class="story-image-placeholder">
-                                <img src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=400&h=400&fit=crop" alt="Calculator and notebook">
+                                <img src="testimonial2.png" alt="Calculator and notebook">
                             </div>
-                            <h3>Test Score Success</h3>
-                            <p class="story-role">Grade 7 • Geometry</p>
-                            <p class="story-bio">"My grade improved by a lot! The [help] made all the difference."</p>
+                            <p class="story-role">Grade 2 • Basic Operations</p>
+                            <p class="story-bio">"My child's addition and subtraction has improved a lot thanks to the help of the tutor! Keep up the great work."</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Carousel Indicators -->
             <div class="carousel-indicators">
                 <button class="indicator active" onclick="goToSlide(0)"></button>
                 <button class="indicator" onclick="goToSlide(1)"></button>
@@ -768,7 +676,6 @@
 
     <div class="divider"></div>
 
-    <!-- Our Story Section -->
     <section class="story-section">
         <h2 class="section-title">Our Story</h2>
         <div class="story-content">
@@ -777,7 +684,6 @@
         </div>
     </section>
 
-    <!-- Call to Action -->
     <section class="cta-section">
         <h2>Ready to Get Started?</h2>
         <p>Join hundreds of students who have transformed their math skills with Student Math Mentors</p>
@@ -789,50 +695,32 @@
 </div>
 
 <script>
-    // Mission info toggle
     function toggleMissionInfo(infoType) {
       const infoBoxes = document.querySelectorAll('.mission-info');
       infoBoxes.forEach(box => box.classList.remove('active-info'));
-
       const buttons = document.querySelectorAll('.mission-btn');
       buttons.forEach(btn => btn.classList.remove('active'));
-
       const selectedInfo = document.getElementById(infoType);
-      if (selectedInfo) {
-        selectedInfo.classList.add('active-info');
-      }
-
+      if (selectedInfo) selectedInfo.classList.add('active-info');
       event.target.classList.add('active');
     }
 
-    // Carousel functionality
     let currentSlide = 0;
     const totalSlides = 4;
 
     function updateCarousel() {
       const track = document.querySelector('.carousel-track');
       const indicators = document.querySelectorAll('.indicator');
-
       track.style.transform = `translateX(-${currentSlide * 100}%)`;
-
       indicators.forEach((indicator, index) => {
-        if (index === currentSlide) {
-          indicator.classList.add('active');
-        } else {
-          indicator.classList.remove('active');
-        }
+        indicator.classList.toggle('active', index === currentSlide);
       });
     }
 
     function moveCarousel(direction) {
       currentSlide += direction;
-
-      if (currentSlide < 0) {
-        currentSlide = totalSlides - 1;
-      } else if (currentSlide >= totalSlides) {
-        currentSlide = 0;
-      }
-
+      if (currentSlide < 0) currentSlide = totalSlides - 1;
+      else if (currentSlide >= totalSlides) currentSlide = 0;
       updateCarousel();
     }
 
@@ -841,10 +729,7 @@
       updateCarousel();
     }
 
-    // Optional: Auto-advance carousel every 5 seconds
-    setInterval(() => {
-      moveCarousel(1);
-    }, 5000);
+    setInterval(() => moveCarousel(1), 5000);
 </script>
 </body>
 </html>
