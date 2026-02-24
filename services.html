@@ -1,138 +1,230 @@
+
 <!DOCTYPE html>
 <html lang="en">
-<body>
 <head>
-    
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Get Tutoring — Student Math Mentors</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <title>Student Math Mentors — Services</title>
 
-  
-  <nav>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{
+      --accent:#2b6ef6;
+      --bg:#f7fbff;
+      --muted:#475569;
+      --card-shadow: 0 10px 30px rgba(18,25,47,0.06);
+      --glass: rgba(255,255,255,0.85);
+      font-family: "DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{background:var(--bg);color:#0f1724;line-height:1.45;-webkit-font-smoothing:antialiased;padding-bottom:4rem}
+
+    /* Nav / header (consistent with site) */
+    nav{position:sticky;top:0;z-index:60;background:linear-gradient(180deg,var(--glass),rgba(250,250,250,0.7));backdrop-filter:blur(6px);box-shadow:0 6px 18px rgba(20,24,40,0.04)}
+    .nav-container{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.8rem 1rem}
+    .logo img{display:block;width:76px;height:66px;object-fit:contain}
+    .nav-links{display:flex;gap:.6rem;list-style:none;align-items:center}
+    .nav-links a{text-decoration:none;color:#263238;padding:.45rem .6rem;border-radius:6px;transition:background .18s}
+    .nav-links a:hover{background:rgba(0,0,0,0.06)}
+    .nav-actions{display:flex;gap:.6rem;align-items:center}
+    .btn{border-radius:8px;padding:.5rem .8rem;font-weight:600;text-decoration:none;display:inline-block}
+    .btn-primary{background:var(--accent);color:#fff;box-shadow:0 6px 18px rgba(43,110,246,0.12)}
+    .btn-outline{border:1px solid rgba(43,110,246,0.12);color:var(--accent);background:transparent}
+
+    /* Hero */
+    .hero{padding:2.4rem 1rem;text-align:center}
+    .hero-inner{max-width:900px;margin:0 auto}
+    .hero-title{font-size:2rem;font-weight:700;margin-bottom:.4rem}
+    .hero-sub{color:var(--muted)}
+
+    /* Services grid */
+    .container{max-width:1100px;margin:1.2rem auto;padding:0 1rem}
+    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem;align-items:start} /* increased spacing */
+    @media (max-width:1000px){ .services-grid{grid-template-columns:repeat(2,1fr)} }
+    @media (max-width:650px){ .services-grid{grid-template-columns:1fr} }
+
+    .service-card{background:#fff;border-radius:14px;padding:1.25rem;box-shadow:var(--card-shadow);overflow:hidden;display:flex;flex-direction:column;gap:.8rem;min-height:260px;transition:transform .18s ease,box-shadow .18s ease}
+    .service-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(18,25,47,0.08)}
+    .service-media{height:160px;border-radius:10px;background:#eef6ff;display:flex;align-items:center;justify-content:center;overflow:hidden} /* larger image area */
+    .service-media img{width:100%;height:100%;object-fit:cover;display:block}
+    .service-title{font-weight:700;font-size:1.05rem}
+    .service-desc{color:var(--muted);font-size:.95rem;margin-top:.25rem} /* tightened & shortened copy spacing */
+    .service-bullets{margin:.5rem 0 0;list-style:none;padding:0;display:flex;flex-direction:column;gap:.32rem}
+    .badge{display:inline-block;padding:.25rem .5rem;border-radius:999px;background:rgba(43,110,246,0.08);color:var(--accent);font-weight:600;font-size:.78rem}
+
+    .card-footer{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:.6rem}
+    .learn{color:var(--accent);text-decoration:none;font-weight:600}
+
+    /* Larger spotlight section */
+    .spotlight{margin-top:1.8rem;background:linear-gradient(180deg,#fff,#fbfdff);padding:1.4rem;border-radius:12px;box-shadow:var(--card-shadow);display:flex;gap:1rem;align-items:center}
+    .spot-media{width:220px;height:140px;border-radius:10px;overflow:hidden;flex-shrink:0} /* bigger spotlight image */
+    .spot-copy{flex:1}
+    .spot-copy h3{margin-bottom:.4rem}
+    .kgrades{display:flex;gap:.45rem;flex-wrap:wrap;margin-top:.6rem}
+
+    /* Animations */
+    @keyframes popUp { from{opacity:0;transform:translateY(18px) scale(.995)} to{opacity:1;transform:translateY(0) scale(1)} }
+    @keyframes drop { from{opacity:0;transform:translateY(-8px)} to{opacity:1;transform:translateY(0)} }
+    .content-block{opacity:0;animation:popUp 420ms cubic-bezier(.2,.9,.2,1) forwards}
+    .fade-down{opacity:0;animation:drop 420ms ease forwards}
+
+    /* small utilities */
+    .center{text-align:center}
+    .muted{color:var(--muted)}
+  </style>
+</head>
+<body>
+  <nav class="fade-down" aria-label="Primary">
     <div class="nav-container">
       <div class="logo">
-        <img src="logo.png" alt="Student Math Mentors Logo" width="80" height="70" class="navbar" /> </li>
+        <a href="index.html"><img src="logo.png" alt="Student Math Mentors logo" /></a>
       </div>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="volunteer.html">Volunteer</a></li>
-        <li><a href="resources.html">Resources</a></li>
-        <li><a href="contact.html" class="btn-login">Get Started</a></li>
+
+      <ul class="nav-links" role="menubar" aria-label="Main navigation">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#services" aria-current="page">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
+
+      <div class="nav-actions">
+        <a class="btn btn-outline" href="index.html#volunteer">Volunteer</a>
+        <a class="btn btn-primary" href="contact.html">Book a Session</a>
+      </div>
     </div>
   </nav>
-  <section class="services-hero fade-in">
-    <h1>Request Tutoring</h1>
-    <p>Fill out the short request form below and we'll match you with a volunteer tutor. If you prefer direct assistance, use our contact page.</p>
-  </section>
 
-  <main class="container">
-      <!-- how it works section -->
-      <section class="how-it-works fade-in">
-        <div class="how-it-works-container">
-          <h2>How it works</h2>
-            <p>1. Submit the request form with your subject and availability.</p>
-            <p>2. We will match you with an available volunteer tutor.</p>
-            <p>3. Your tutor will reach out to schedule a session and provide materials.</p>
-        </div>
-      </section>
-
-
-    <!-- form -->
-    <div class="divider"></div>
-    <section class="form-container fade-in">
-    <div class="form-header">
-        <h2>Request Tutoring Form</h2>
-        <p>Please fill out the form below to request tutoring.</p>
+  <header class="hero">
+    <div class="hero-inner content-block" role="region" aria-label="Services hero">
+      <h1 class="hero-title">Our Services</h1>
+      <p class="hero-sub">Tailored math support for K–8 students — group sessions, one-on-one tutoring, homework help, and grade-specific programs.</p>
     </div>
+  </header>
 
-    <form id="volunteerForm" action="https://formspree.io/f/mlglpqvk" method="POST">
-        <h3 style="color: #0A1F44; margin-bottom: 20px; font-size: 1.3rem;">Personal Information</h3>
-
-        <div class="form-row">
-            <div class="form-group">
-                <label for="firstName">First Name <span class="required">*</span></label>
-                <input type="text" id="firstName" name="firstName" required placeholder="Enter your first name">
-            </div>
-            <div class="form-group">
-                <label for="lastName">Last Name <span class="required">*</span></label>
-                <input type="text" id="lastName" name="lastName" required placeholder="Enter your last name">
-            </div>
+  <main class="container" id="services" role="main">
+    <section class="services-grid">
+      <article class="service-card content-block" tabindex="0" aria-labelledby="svc-group">
+        <div class="service-media" aria-hidden="true">
+          <img src="images/group-session.jpg" alt="Students working together in a group session" />
         </div>
-
-        <div class="form-row">
-            <div class="form-group">
-                <label for="email">Email Address <span class="required">*</span></label>
-                <input type="email" id="email" name="email" required placeholder="youremail@example.com">
-            </div>
-            <div class="form-group">
-                <label for="phone">Phone Number <span class="required">*</span></label>
-                <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number">
-            </div>
+        <h3 id="svc-group" class="service-title">Group Sessions</h3>
+        <p class="service-desc">Small-group lessons for reinforcement and peer learning.</p>
+        <ul class="service-bullets">
+          <li class="muted">Weekly themed lessons</li>
+          <li class="muted">4–8 students per group</li>
+          <li class="muted">Interactive problem-solving</li>
+        </ul>
+        <div class="card-footer">
+          <span class="badge">Flexible scheduling</span>
+          <a class="learn" href="contact.html">Learn more →</a>
         </div>
+      </article>
 
-        <div class="form-row">
-            <div class="form-group">
-                <label for="grade">Current Grade Level <span class="required">*</span></label>
-                <select id="grade" name="grade" required>
-                    <option value="">Select your grade</option>
-                    <option value="1">1st Grade</option>
-                    <option value="2">2nd Grade</option>
-                    <option value="3">3rd Grade</option>
-                    <option value="4">4th Grade</option>
-                    <option value="5">5th Grade</option>
-                    <option value="6">6th Grade</option>
-                    <option value="7">7th Grade</option>
-                    <option value="8">8th Grade</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="subject">Subject <span class="required">*</span></label>
-                <input type="text" id="school" name="school" required placeholder="Enter the subject you need help with">
-            </div>
+      <article class="service-card content-block" tabindex="0" aria-labelledby="svc-one">
+        <div class="service-media" aria-hidden="true">
+          <img src="images/one-on-one.jpg" alt="One-on-one tutoring session" />
         </div>
-
-
-
-        <div class="form-group">
-            <label for="availability">Availability (days/times you can be tutored) <span class="required">*</span></label>
-            <textarea id="availability" name="availability" required placeholder="Example: Tuesdays and Thursdays 4-6pm, Saturdays 10am-12pm"></textarea>
+        <h3 id="svc-one" class="service-title">One‑on‑One Tutoring</h3>
+        <p class="service-desc">Personalized, standards-aligned sessions tailored to each student.</p>
+        <ul class="service-bullets">
+          <li class="muted">Custom lesson plans</li>
+          <li class="muted">Progress tracking</li>
+          <li class="muted">Flexible length: 30–60 min</li>
+        </ul>
+        <div class="card-footer">
+          <span class="badge">Personalized plan</span>
+          <a class="learn" href="contact.html">Learn more →</a>
         </div>
+      </article>
 
-        <div class="form-group">
-            <label for="additionalInfo">Additional Information </span></label>
-            <textarea id="additionalInfo" name="additionalInfo" placeholder="Anything else you would like us to know?"></textarea>
+      <article class="service-card content-block" tabindex="0" aria-labelledby="svc-homework">
+        <div class="service-media" aria-hidden="true">
+          <img src="images/homework-help.jpg" alt="Tutor assisting a student with homework" />
         </div>
-
-
-
-        <div class="submit-section">
-            <button type="submit" class="submit-btn">Submit Application</button>
-            <div id="successMessage" class="success-message">
-                We've received your application. Thank you for your interest in becoming a tutor!
-            </div>
+        <h3 id="svc-homework" class="service-title">Homework Help & Workshops</h3>
+        <p class="service-desc">Drop-in help and short workshops for focused topics.</p>
+        <ul class="service-bullets">
+          <li class="muted">Topic-focused workshops</li>
+          <li class="muted">Homework support windows</li>
+          <li class="muted">Test prep sessions</li>
+        </ul>
+        <div class="card-footer">
+          <span class="badge">Short term</span>
+          <a class="learn" href="contact.html">Learn more →</a>
         </div>
-    </form>
-</section>
+      </article>
 
+      <article class="service-card content-block" tabindex="0" aria-labelledby="svc-grade">
+        <div class="service-media" aria-hidden="true">
+          <img src="images/grades-k8.jpg" alt="Grade level support K through 8" />
+        </div>
+        <h3 id="svc-grade" class="service-title">Grade‑Level Programs (K–8)</h3>
+        <p class="service-desc">Standards-aligned K–8 programs focused on foundational skills.</p>
+        <ul class="service-bullets">
+          <li class="muted">K–2: early numeracy</li>
+          <li class="muted">3–5: basic operations & fractions</li>
+          <li class="muted">6–8: pre‑algebra fundamentals</li>
+        </ul>
+        <div class="card-footer">
+          <span class="badge">K–8 coverage</span>
+          <a class="learn" href="contact.html">Learn more →</a>
+        </div>
+      </article>
 
-    <p style="margin-top:1.5rem">Questions? Visit our <a href="contact.html">Contact page</a>.</p>
-  </main>
+      <article class="service-card content-block" tabindex="0" aria-labelledby="svc-assess">
+        <div class="service-media" aria-hidden="true">
+          <img src="images/assessment.jpg" alt="Assessment and progress tracking" />
+        </div>
+        <h3 id="svc-assess" class="service-title">Assessments & Progress Tracking</h3>
+        <p class="service-desc">Short diagnostics and monthly progress updates.</p>
+        <ul class="service-bullets">
+          <li class="muted">Initial diagnostic</li>
+          <li class="muted">Monthly progress reports</li>
+          <li class="muted">Goal setting meetings</li>
+        </ul>
+        <div class="card-footer">
+          <span class="badge">Data-driven</span>
+          <a class="learn" href="contact.html">Learn more →</a>
+        </div>
+      </article>
+
+      <article class="service-card content-block" tabindex="0" aria-labelledby="svc-pricing">
+        <div class="service-media" aria-hidden="true">
+          <img src="images/pricing.jpg" alt="Pricing and packages" />
+        </div>
+        <h3 id="svc-pricing" class="service-title">Packages & Pricing</h3>
+        <p class="service-desc">Flexible single-session and package pricing.</p>
+        <ul class="service-bullets">
+          <li class="muted">Single sessions</li>
+          <li class="muted">Monthly plans</li>
+          <li class="muted">School group rates</li>
+        </ul>
+        <div class="card-footer">
+          <span class="badge">Flexible</span>
+          <a class="learn" href="contact.html">Learn more →</a>
+        </div>
+      </article> 
+      
+      <div> </div>
+      <div> </div>
+      <div> </div>
+      
+
+    </section>
+  
 
   <script>
-    // show a confirmation message if redirected back after successful submit
     (function(){
-      const params = new URLSearchParams(window.location.search);
-      if(params.get('sent')==='1'){
-        const el = document.getElementById('requestSuccess'); if(el) el.style.display='block';
-      }
+      const blocks = document.querySelectorAll('.content-block');
+      blocks.forEach((el, i) => el.style.animationDelay = (i * 0.08) + 's');
+      document.querySelectorAll('.fade-down').forEach(el => el.style.animationDelay = '0s');
     })();
   </script>
 </body>
 </html>
+
+
