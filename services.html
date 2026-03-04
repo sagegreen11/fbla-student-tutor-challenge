@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<body>
+
 <head>
     
   <meta charset="utf-8" />
@@ -10,8 +10,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
-  
+  <body>
   <nav>
     <div class="nav-container">
       <div class="logo">
@@ -31,7 +33,7 @@
     <h1>Schedule Tutoring</h1>
     <p>Fill out the short scheduling form below and we'll match you with a volunteer tutor. If you prefer direct assistance, use our contact page.</p>
   </section>
-
+  
   <main class="container">
       <!-- how it works section -->
       <section class="how-it-works fade-in">
@@ -133,9 +135,25 @@
 
 
 
-        <div class="form-group">
-            <label for="availability">Availability (days/times you can be tutored) <span class="required">*</span></label>
-            <select id="availability" name="availability">
+        <div class="form-row">
+  <div class="form-group">
+    <label for="datePicker">Select a Date <span class="required">*</span></label>
+    <input type="text" id="datePicker" name="selectedDate" placeholder="Pick a date" required readonly>
+  </div>
+  <div class="form-group">
+    <label for="sessionTime">Session Time <span class="required">*</span></label>
+    <select id="sessionTime" name="sessionTime" required>
+      <option value="">Select a time</option>
+      <option value="4:00 PM - 5:00 PM">4:00 PM – 5:00 PM</option>
+      <option value="5:00 PM - 6:00 PM">5:00 PM – 6:00 PM</option>
+      <option value="6:00 PM - 8:00 PM">6:00 PM – 8:00 PM</option>
+      <option value="7:00 PM - 8:00 PM">7:00 PM – 8:00 PM</option>
+      <option value="8:00 PM - 9:00 PM">8:00 PM – 9:00 PM</option>
+    </select>
+  </div>
+</div>
+            
+            <!--<select id="availability" name="availability">
                     <option value="">Select the type of lesson and date/time</option>
                     <option value="1-on-1 tutoring, Mon 4-5PM">1-on-1 tutoring, Mon 4-5PM</option>
                     <option value="Group tutoring, Mon 6-8PM">Group tutoring, Mon 6-8PM</option>
@@ -146,7 +164,7 @@
                     <option value="1-on-1 tutoring, Thurs 7-8PM">1-on-1 tutoring, Thurs 7-8PM</option>
                     <option value="1-on-1 tutoring, Fri 6-7PM">1-on-1 tutoring, Fri 6-7PM</option>
                 
-                </select>
+            </select>-->
         </div>
 
         <div class="form-group">
@@ -187,5 +205,12 @@
     document.getElementById("availability").value = session;
     }
     </script>
+
+    <script>
+  flatpickr("#datePicker", {
+    minDate: "today",
+    dateFormat: "D, M d, Y",
+  });
+</script>
 </body>
 </html>
